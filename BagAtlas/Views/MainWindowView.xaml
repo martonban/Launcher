@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BagAtlas.Views"
         mc:Ignorable="d"
+        FontSize="70"
         Title="MainWindowView" Height="1080" Width="1920">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,5 +29,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
+
+        <Button x:Name="Serialization" Grid.Row="1" Grid.Column="1">Test</Button>
+
     </Grid>
 </Window>
