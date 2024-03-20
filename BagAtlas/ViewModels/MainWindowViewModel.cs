@@ -1,16 +1,8 @@
 ﻿using BagAtlas.Models;
-using System;
 using System.Text.Json;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using Caliburn.Micro;
-using System.Net.NetworkInformation;
-using Newtonsoft.Json;
-using System.Windows.Media.Media3D;
 using BagAtlas.Utils;
+using System.Net;
 
 
 namespace BagAtlas.ViewModels {
@@ -25,7 +17,12 @@ namespace BagAtlas.ViewModels {
         }
 
         public void Serialization() {
-            string jsonString = System.Text.Json.JsonSerializer.Serialize(_tests);
+            // Pretty Print 
+            var option = new JsonSerializerOptions();
+            option.WriteIndented = true; 
+
+            // Serialization 
+            string jsonString = JsonSerializer.Serialize(_tests, option);
         }
 
         public void Deserialization() {
