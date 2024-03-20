@@ -27,5 +27,9 @@ namespace BagAtlas.ViewModels {
         public void Serialization() {
             string jsonString = System.Text.Json.JsonSerializer.Serialize(_tests);
         }
+
+        public void Deserialization() {
+            return;
+        }
     }
 }
