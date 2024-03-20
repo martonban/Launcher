@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 //                  Copyright Márton Bán (C) 2024
 //
 //  BagAtlas will handle multiple files. This class main responsibility
-//  is to track the files if we have a Bag Project
+//  is to track the files if we have a Bag Project.
 // --------------------------------------------------------------------
 
 namespace BagAtlas.Utils.IO {
