@@ -3,10 +3,12 @@ using System.Text.Json;
 using Caliburn.Micro;
 using BagAtlas.Utils;
 using System.Net;
+using System.IO;
+using System;
 
 
 namespace BagAtlas.ViewModels {
-    internal class MainWindowViewModel {
+    internal class MainWindowViewModel : Conductor<object>{
 
         private BindableCollection<TestModel> _tests = new BindableCollection<TestModel>();
 
@@ -23,10 +25,16 @@ namespace BagAtlas.ViewModels {
 
             // Serialization 
             string jsonString = JsonSerializer.Serialize(_tests, option);
+
+            // TO - DO Migrate to file writer class
+            File.WriteAllText("serialization.json", jsonString);
+           
         }
 
         public void Deserialization() {
-            return;
+            var serializationJson = File.ReadAllText("serialization.json");
+            _tests = JsonSerializer.Deserialize<BindableCollection<TestModel>>(serializationJson);
+            Console.WriteLine(_tests[2].Pos.x);
         }
     }
 }

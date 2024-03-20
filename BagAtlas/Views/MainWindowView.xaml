@@ -32,8 +32,6 @@
 
         <Button x:Name="Serialization" Margin="10" Grid.Row="1" Grid.Column="1">Serialization</Button>
         <Button x:Name="Deserialization" Margin="10" Grid.Row="1" Grid.Column="2">De - Serialization</Button>
-        <TextBlock Grid.Row="2" Grid.Column="2">Test 1</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="2">Test 2</TextBlock>
 
     </Grid>
 </Window>

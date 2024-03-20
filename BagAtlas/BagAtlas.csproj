@@ -121,6 +121,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Utils\IO\FileManager.cs" />
+    <Compile Include="Utils\IO\FileReader.cs" />
+    <Compile Include="Utils\IO\FileWriter.cs" />
     <Compile Include="Utils\Vector2f.cs" />
     <Compile Include="Utils\Vector2i.cs" />
     <Compile Include="Utils\Vector3f.cs" />
