@@ -1,5 +1,5 @@
-﻿namespace BagAtlas {
-    partial class Hub {
+﻿namespace BagAtlasWinForms.View {
+    partial class BagAtlasMainView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,21 +23,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.SuspendLayout();
-            // 
-            // Hub
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 953);
-            this.Name = "Hub";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bag Atlas Hub";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "BagAtlasMainView";
         }
 
         #endregion
     }
 }
-

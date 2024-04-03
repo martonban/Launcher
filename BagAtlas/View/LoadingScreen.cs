@@ -22,9 +22,13 @@ namespace BagAtlas.Forms {
             this.Enabled = true;
             this.Cursor = Cursors.Default;
             this.Hide();
-            var hub = new Hub();
-            hub.Closed += (s, args) => this.Close();
-            hub.Show();
+            var launcher = new LauncherView();
+            launcher.Closed += (s, args) => this.Close();
+            launcher.Show();
+        }
+
+        private void LoadingScreen_Load(object sender, EventArgs e) {
+
         }
     }
 }

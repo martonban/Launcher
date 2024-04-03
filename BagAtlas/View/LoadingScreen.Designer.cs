@@ -38,6 +38,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoadingScreen";
+            this.Load += new System.EventHandler(this.LoadingScreen_Load);
             this.ResumeLayout(false);
 
         }

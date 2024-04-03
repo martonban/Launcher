@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BagAtlas {
-    public partial class Hub : Form {
-        public Hub() {
+namespace BagAtlasWinForms.View {
+    public partial class BagAtlasMainView : Form {
+        public BagAtlasMainView() {
             InitializeComponent();
         }
     }
