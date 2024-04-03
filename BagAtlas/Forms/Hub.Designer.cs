@@ -25,13 +25,14 @@
         private void InitializeComponent() {
             this.SuspendLayout();
             // 
-            // Form1
+            // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 450);
-            this.Name = "Form1";
-            this.Text = "Bag Atlas - Launcher";
+            this.ClientSize = new System.Drawing.Size(966, 953);
+            this.Name = "Hub";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bag Atlas Hub";
             this.ResumeLayout(false);
 
         }
