@@ -1,5 +1,5 @@
-﻿namespace LauncherWinForms {
-    partial class Form1 {
+﻿namespace LauncherWinForms.View {
+    partial class MainLauncherView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -26,10 +26,9 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "MainLauncherView";
         }
 
         #endregion
     }
 }
-
