@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EmporLauncher")]
+[assembly: AssemblyTitle("LauncherWinForms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EmporLauncher")]
+[assembly: AssemblyProduct("LauncherWinForms")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ee9e7551-6d0c-49af-a2cb-30bce52d640f")]
+[assembly: Guid("dc6ae168-78c6-4bed-bbeb-24ff72806fb6")]
 
 // Version information for an assembly consists of the following four values:
 //

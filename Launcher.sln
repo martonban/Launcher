@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmporLauncher", "EmporLauncher\EmporLauncher.csproj", "{EE9E7551-6D0C-49AF-A2CB-30BCE52D640F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LauncherWinForms", "LauncherWinForms\LauncherWinForms.csproj", "{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE9E7551-6D0C-49AF-A2CB-30BCE52D640F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE9E7551-6D0C-49AF-A2CB-30BCE52D640F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE9E7551-6D0C-49AF-A2CB-30BCE52D640F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE9E7551-6D0C-49AF-A2CB-30BCE52D640F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {95857F4C-4C88-4276-9374-1E0E36EF726A}
+		SolutionGuid = {12460F7E-D6BD-4032-B08D-5351BC58AA31}
 	EndGlobalSection
 EndGlobal

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmporLauncher.Properties {
+namespace LauncherWinForms.Properties {
 
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

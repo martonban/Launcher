@@ -1,4 +1,4 @@
-﻿namespace EmporLauncher {
+﻿namespace LauncherWinForms {
     partial class Form1 {
         /// <summary>
         /// Required designer variable.

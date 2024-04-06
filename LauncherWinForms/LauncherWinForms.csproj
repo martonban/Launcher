@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE9E7551-6D0C-49AF-A2CB-30BCE52D640F}</ProjectGuid>
+    <ProjectGuid>{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EmporLauncher</RootNamespace>
-    <AssemblyName>EmporLauncher</AssemblyName>
+    <RootNamespace>LauncherWinForms</RootNamespace>
+    <AssemblyName>LauncherWinForms</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
