@@ -13,5 +13,9 @@ namespace LauncherWinForms.View {
         public MainLauncherView() {
             InitializeComponent();
         }
+
+        private void MainLauncherView_Load(object sender, EventArgs e) {
+
+        }
     }
 }

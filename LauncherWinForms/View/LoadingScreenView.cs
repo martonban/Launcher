@@ -1,4 +1,5 @@
-﻿using LauncherWinForms.ViewModell;
+﻿using LauncherWinForms.View;
+using LauncherWinForms.ViewModell;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,9 +28,9 @@ namespace LauncherWinForms {
             this.Enabled = true;
             this.Cursor = Cursors.Default;
             this.Hide();
-            var hub = new MainLauncherViewModel();
-            //hub.Closed += (s, args) => this.Close();
-            //hub.Show();
+            var hub = new MainLauncherView();
+            hub.Closed += (s, args) => this.Close();
+            hub.Show();
         }
 
     }
