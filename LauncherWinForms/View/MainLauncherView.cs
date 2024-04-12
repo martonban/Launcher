@@ -17,5 +17,17 @@ namespace LauncherWinForms.View {
         private void MainLauncherView_Load(object sender, EventArgs e) {
 
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+
+        }
     }
 }

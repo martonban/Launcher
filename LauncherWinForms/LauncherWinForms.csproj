@@ -95,7 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\apps_icon.png" />
     <Content Include="Assets\logo_transparent.png" />
+    <None Include="Assets\watermark.png" />
+    <None Include="Assets\project_icon.png" />
     <Content Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
