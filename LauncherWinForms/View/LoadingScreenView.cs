@@ -24,7 +24,7 @@ namespace LauncherWinForms {
         }
 
         public async void WaitSomeTime() {
-            await Task.Delay(10000);
+            await Task.Delay(3000);
             this.Enabled = true;
             this.Cursor = Cursors.Default;
             this.Hide();
