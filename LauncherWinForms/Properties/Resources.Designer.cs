@@ -83,6 +83,46 @@ namespace LauncherWinForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apps_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("apps_icon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Assets_logo {
+            get {
+                object obj = ResourceManager.GetObject("Assets_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap libary_logo {
+            get {
+                object obj = ResourceManager.GetObject("libary_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_store {
+            get {
+                object obj = ResourceManager.GetObject("logo_store", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_transparent {
             get {
                 object obj = ResourceManager.GetObject("logo_transparent", resourceCulture);
@@ -106,6 +146,26 @@ namespace LauncherWinForms.Properties {
         internal static System.Drawing.Bitmap watermark {
             get {
                 object obj = ResourceManager.GetObject("watermark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap watermark_developer {
+            get {
+                object obj = ResourceManager.GetObject("watermark_developer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap watermark_games {
+            get {
+                object obj = ResourceManager.GetObject("watermark_games", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
