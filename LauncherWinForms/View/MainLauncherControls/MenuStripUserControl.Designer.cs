@@ -1,5 +1,5 @@
 ﻿namespace LauncherWinForms.View.MainLauncherControls {
-    partial class MenuStrip {
+    partial class MenuStripUserControl {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

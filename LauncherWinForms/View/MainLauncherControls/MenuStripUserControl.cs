@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LauncherWinForms.View.MainLauncherControls {
-    public partial class MenuStrip : UserControl {
-        public MenuStrip() {
+    public partial class MenuStripUserControl : UserControl {
+        public MenuStripUserControl() {
             InitializeComponent();
         }
     }
