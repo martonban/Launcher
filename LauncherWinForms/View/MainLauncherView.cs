@@ -29,5 +29,9 @@ namespace LauncherWinForms.View {
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 
         }
+
+        private void test1_Load(object sender, EventArgs e) {
+
+        }
     }
 }

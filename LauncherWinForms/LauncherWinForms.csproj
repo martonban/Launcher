@@ -59,6 +59,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MainLauncherControls\Test.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MainLauncherControls\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainLauncherControls\TestTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MainLauncherControls\TestTest.Designer.cs">
+      <DependentUpon>TestTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainLauncherView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\MainLauncherControls\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainLauncherControls\TestTest.resx">
+      <DependentUpon>TestTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainLauncherView.resx">
       <DependentUpon>MainLauncherView.cs</DependentUpon>
     </EmbeddedResource>
