@@ -24,9 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -48,6 +48,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
@@ -77,8 +78,29 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 1000);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 1200);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 2);
+            this.pictureBox1.Image = global::LauncherWinForms.Properties.Resources.watermark_games;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(344, 102);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LauncherWinForms.Properties.Resources.logo_store;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 111);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(110, 102);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // linkLabel1
             // 
@@ -86,7 +108,6 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.DisabledLinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkLabel1.Font = new System.Drawing.Font("Rubik", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
@@ -99,32 +120,8 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // pictureBox1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 2);
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::LauncherWinForms.Properties.Resources.watermark_games;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(344, 102);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::LauncherWinForms.Properties.Resources.logo_store;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 111);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(110, 102);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox4
             // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox4.Image = global::LauncherWinForms.Properties.Resources.libary_logo;
             this.pictureBox4.Location = new System.Drawing.Point(3, 219);
             this.pictureBox4.Name = "pictureBox4";
@@ -136,7 +133,6 @@
             // pictureBox3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.pictureBox3, 2);
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = global::LauncherWinForms.Properties.Resources.watermark_developer;
             this.pictureBox3.Location = new System.Drawing.Point(3, 435);
             this.pictureBox3.Name = "pictureBox3";
@@ -147,7 +143,6 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Image = global::LauncherWinForms.Properties.Resources.apps_icon1;
             this.pictureBox5.Location = new System.Drawing.Point(10, 550);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(10);
@@ -159,7 +154,6 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox6.Image = global::LauncherWinForms.Properties.Resources.project_icon;
             this.pictureBox6.Location = new System.Drawing.Point(3, 651);
             this.pictureBox6.Name = "pictureBox6";
@@ -170,7 +164,6 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox7.Image = global::LauncherWinForms.Properties.Resources.Assets_logo;
             this.pictureBox7.Location = new System.Drawing.Point(10, 766);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(10);
@@ -184,7 +177,6 @@
             // 
             this.linkLabel2.ActiveLinkColor = System.Drawing.Color.White;
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkLabel2.Font = new System.Drawing.Font("Rubik", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel2.LinkColor = System.Drawing.Color.White;
@@ -201,8 +193,7 @@
             // 
             this.linkLabel3.ActiveLinkColor = System.Drawing.Color.White;
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linkLabel3.Font = new System.Drawing.Font("Rubik", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.linkLabel3.Font = new System.Drawing.Font("Rubik", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.White;
             this.linkLabel3.Location = new System.Drawing.Point(119, 540);
@@ -218,8 +209,7 @@
             // 
             this.linkLabel4.ActiveLinkColor = System.Drawing.Color.White;
             this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linkLabel4.Font = new System.Drawing.Font("Rubik", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.linkLabel4.Font = new System.Drawing.Font("Rubik", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel4.LinkColor = System.Drawing.Color.White;
             this.linkLabel4.Location = new System.Drawing.Point(119, 648);
@@ -235,7 +225,6 @@
             // 
             this.linkLabel5.ActiveLinkColor = System.Drawing.Color.White;
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkLabel5.Font = new System.Drawing.Font("Rubik", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel5.LinkColor = System.Drawing.Color.White;
@@ -244,17 +233,17 @@
             this.linkLabel5.Size = new System.Drawing.Size(228, 108);
             this.linkLabel5.TabIndex = 15;
             this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "Assets Libary";
+            this.linkLabel5.Text = "Assets";
             this.linkLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MenuStrip
+            // MenuStripUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MenuStrip";
-            this.Size = new System.Drawing.Size(350, 1000);
+            this.Name = "MenuStripUserControl";
+            this.Size = new System.Drawing.Size(350, 1200);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -265,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
