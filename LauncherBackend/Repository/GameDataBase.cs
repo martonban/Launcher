@@ -1,13 +1,5 @@
-﻿using LauncherBackend.Exceptions;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using LauncherBackend.DTOs;
+using System.Text.Json;
 
 // --------------------------------------------------
 //          Launcher - LauncherRepository
@@ -15,9 +7,6 @@ using System.Threading.Tasks;
 //
 //  ftpPath: Currently just a folder local machine to
 //  data such as pictures and application data files
-//  
-//  
-//
 // --------------------------------------------------
 
 namespace LauncherBackend.Repository
@@ -28,12 +17,11 @@ namespace LauncherBackend.Repository
         private List<GameDTO> gameDataBase = new List<GameDTO>();
 
         public GameDataBase(String ftpPath) {
-            this.ftpPath = ftpPath;
-            string fullPath = this.ftpPath + "/games_libary.json";
-            if (CheckFileIsExist(fullPath)) {
-                Deserialize(fullPath);
+            this.ftpPath = ftpPath + "/games_libary.json";
+            if (CheckFileIsExist(this.ftpPath)) {
+                Deserialize(this.ftpPath);
             } else {
-                throw new DataBaseConnectionException();
+
             }
         }
 
@@ -51,11 +39,15 @@ namespace LauncherBackend.Repository
         //       (De)Serialization
         //---------------------------------
         private void Deserialize(string ftpPath) {
-            // TODO Deserialziation
+            var serializationJson = File.ReadAllText(ftpPath);
+            gameDataBase = JsonSerializer.Deserialize<List<GameDTO>>(serializationJson);
         }
 
         private void Serialize() {
-            // TODO Serialize
+            var option = new JsonSerializerOptions();
+            option.WriteIndented = true;
+            string jsonString = JsonSerializer.Serialize(gameDataBase, option);
+            File.WriteAllText(ftpPath, jsonString);
         }
 
 
