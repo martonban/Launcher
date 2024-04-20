@@ -1,7 +1,9 @@
 ﻿using LauncherBackend.DTOs;
 using LauncherBackend.Repository;
+using LauncherBackend.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,31 +22,29 @@ using System.Threading.Tasks;
 namespace LauncherBackend {
     public class BackendMain {
         static void Main(string[] args) {
-            LauncherRepository launcherRepository = new LauncherRepository();
-            launcherRepository.ConnectGameDatabase("C:/FTP");
 
+            GameDataService gameDataService = new GameDataService("C:/FTP");
 
+            List<GameDTO> list = new List<GameDTO>();
+            list = gameDataService.GetAllGames();
 
-            GameDTO game1 = new GameDTO{ GameTitle = "No Man's Sky",
+            foreach (GameDTO game in list) {
+                Debug.WriteLine(game.GameTitle + "\n");  
+            }
+
+            GameDTO game3 = new GameDTO{ GameTitle = "My Memory of Us",
                                         Description = "One of the best game ever",
-                                        Developer = "HelloGames",
-                                        Publisher = "HelloGames",
+                                        Developer = "Tets",
+                                        Publisher = "Test",
                                         IconPath = "asd",
                                         ThumbnailPath = "asd"
             };
 
-            GameDTO game2 = new GameDTO {
-                GameTitle = "Fallout 76",
-                Description = "One of the best worst game ever",
-                Developer = "Beteshda Softwares",
-                Publisher = "Beteshda Softwares",
-                IconPath = "asd",
-                ThumbnailPath = "asd"
-            };
-
-            List<GameDTO> gameDTOs = new List<GameDTO>();
-            gameDTOs = launcherRepository.GetAllGames();
-
+            gameDataService.AddGame(game3);
+            Debug.WriteLine("---------------------------------------");
+            foreach (GameDTO game in list) {
+                Debug.WriteLine(game.GameTitle + "\n");
+            }
         }
     }
 }
