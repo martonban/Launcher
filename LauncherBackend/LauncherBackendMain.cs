@@ -14,7 +14,10 @@
 
     class LauncherBackendMain() { 
 
-        public static void Main(String[] args) {
+        
+        
+        
+        //public static void Main(String[] args) {
 
             //  TODO: App Satatus Manger Subsystem
             //  Keep track the application status:  - User data has been init?
@@ -26,7 +29,7 @@
 
             // TODO: App Installer Subsystem
             // The user can isntall external tools.
-        }
+        //}
     }
 
 }
