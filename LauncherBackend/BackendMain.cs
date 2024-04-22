@@ -1,4 +1,4 @@
-﻿using LauncherBackend.DTOs;
+﻿using LauncherBackend.Database;
 using LauncherBackend.Repository;
 using LauncherBackend.Services;
 using System;
@@ -19,7 +19,8 @@ using System.Threading.Tasks;
 //  doesn't need to do anything, for example GameDTO. 
 //---------------------------------------------------
 
-namespace LauncherBackend {
+namespace LauncherBackend
+{
     public class BackendMain {
         static void Main(string[] args) {
 

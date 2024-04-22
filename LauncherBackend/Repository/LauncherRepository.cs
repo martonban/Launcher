@@ -1,4 +1,4 @@
-﻿using LauncherBackend.DTOs;
+﻿using LauncherBackend.Database;
 using LauncherBackend.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -10,17 +10,19 @@ using System.Threading.Tasks;
 //          Launcher - LauncherRepository
 //              Márton Bán (C) 2024
 //
-//  This repositry layer will store and handle data with
-//  the databases or store the application's current status.
-//  --------------------------------------------------
+//  This class main aim is to be the entry point for 
+//  servecies to handle data. Almost every request
+//  will go throw of this calss
+// ---------------------------------------------------
 
 namespace LauncherBackend.Repository
 {
     class LauncherRepository {
+        // Game Database
+        // The Store's offer 
         private GameDataBase gameDataBase;
         private bool gameDataInit = false;
 
-        //private AppStaus appStaus;
 
         public LauncherRepository() { }
 
@@ -28,9 +30,9 @@ namespace LauncherBackend.Repository
         //----------------------------------------------
         //        GameData realated functions 
         //----------------------------------------------
-        public void ConnectGameDatabase(string ftpFilePath) {
+        public void ConnectGameDatabase(string databasePath) {
             try {
-                this.gameDataBase = new GameDataBase(ftpFilePath);
+                this.gameDataBase = new GameDataBase(databasePath);
                 this.gameDataInit = true;
             } catch (GameDataBaseConnectionException exp) { 
                 // TODO Tell the signal system
