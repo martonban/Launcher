@@ -1,5 +1,4 @@
 ﻿using LauncherBackend.Database;
-using LauncherBackend.Databases;
 using LauncherBackend.Repository;
 using LauncherBackend.Services;
 using System;
@@ -24,9 +23,10 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-            FTPServer server = new FTPServer();
+            DownloadManager server = new DownloadManager();
             server.ConnectToServer("C:/Server/FTP");
-            server.IstallApplication("/Apps", "C:/Server/Test", "/BagComposer.zip");
+            server.IstallApplication("/Apps", "/BagComposer.zip", "C:/Server/Test");
+            // server.IstallApplication("/Games", "/Classy_Clash_v1.0.0.zip", "C:/Server/Test");
         }
     }
 }
