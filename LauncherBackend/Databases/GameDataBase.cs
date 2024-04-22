@@ -4,8 +4,8 @@
 //              Launcher - GameDataBase
 //                Márton Bán (C) 2024
 //
-//  This class responsibility is imitates a real
-//  database. This is just the meta-data for each game
+//  This class is imitates a real database. The database
+//  will store only the meta-data for each game.
 // --------------------------------------------------
 
 namespace LauncherBackend.Database

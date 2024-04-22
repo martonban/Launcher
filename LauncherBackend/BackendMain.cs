@@ -26,6 +26,7 @@ namespace LauncherBackend
         static void Main(string[] args) {
             FTPServer server = new FTPServer();
             server.ConnectToServer("C:/Server/FTP");
+            server.IstallApplication("/Apps", "C:/Server/Test", "/BagComposer.zip");
         }
     }
 }
