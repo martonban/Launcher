@@ -38,12 +38,12 @@ namespace LauncherBackend.Services
             }
         }
 
-        public void IstallApplication(string ftpFolderPath, string fileName, string installationPath)
+        public void IstallApplication(string ftpFolderPath, string fileName, string installationPath, string appName)
         {
             Console.WriteLine(FTPFilePath + ftpFolderPath + fileName);
             if (CheckAppIsExistInTheServer(ftpFolderPath + fileName) && isConnected)
             {
-                Install(ftpFolderPath, installationPath, fileName);
+                Install(ftpFolderPath, installationPath, fileName, appName);
             }
             else
             {
@@ -67,14 +67,14 @@ namespace LauncherBackend.Services
             }
         }
 
-        private void Install(string ftpPath, string installationPath, string appName)
+        private void Install(string ftpPath, string installationPath, string fileName, string appName)
         {
-            Console.WriteLine(FTPFilePath + ftpPath + appName + "\n");
+            Console.WriteLine(FTPFilePath + ftpPath + fileName + "\n");
             Console.WriteLine(installationPath);
             // Extract
             try
             {
-                System.IO.Compression.ZipFile.ExtractToDirectory(FTPFilePath + ftpPath + appName, installationPath);
+                System.IO.Compression.ZipFile.ExtractToDirectory(FTPFilePath + ftpPath + fileName, installationPath + "/" + appName);
             }
             catch (IOException)
             {
