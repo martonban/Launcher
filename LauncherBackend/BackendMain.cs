@@ -1,4 +1,5 @@
 ﻿using LauncherBackend.Database;
+using LauncherBackend.Databases;
 using LauncherBackend.Repository;
 using LauncherBackend.Services;
 using System;
@@ -23,29 +24,8 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-
-            GameDataService gameDataService = new GameDataService("C:/FTP");
-
-            List<GameDTO> list = new List<GameDTO>();
-            list = gameDataService.GetAllGames();
-
-            foreach (GameDTO game in list) {
-                Debug.WriteLine(game.GameTitle + "\n");  
-            }
-
-            GameDTO game3 = new GameDTO{ GameTitle = "My Memory of Us",
-                                        Description = "One of the best game ever",
-                                        Developer = "Tets",
-                                        Publisher = "Test",
-                                        IconPath = "asd",
-                                        ThumbnailPath = "asd"
-            };
-
-            gameDataService.AddGame(game3);
-            Debug.WriteLine("---------------------------------------");
-            foreach (GameDTO game in list) {
-                Debug.WriteLine(game.GameTitle + "\n");
-            }
+            FTPServer server = new FTPServer();
+            server.ConnectToServer("C:/Server/FTP");
         }
     }
 }
