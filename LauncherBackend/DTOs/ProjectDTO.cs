@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace LauncherBackend.DTOs
 {
     public class ProjectDTO {
-        public string projectName { get; set; }
-        public string engine { get; set; }
-        public string app { get; set; }
+        public string? ProjectName { get; set; }
+        public string? ProjectPath { get; set; }
+        public string? AppType { get; set; }
     }
 }

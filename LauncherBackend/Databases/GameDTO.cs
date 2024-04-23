@@ -23,6 +23,7 @@ namespace LauncherBackend.Database
         public string? Publisher { get; set; }
         public string? IconPath { get; set; }
         public string? ThumbnailPath { get; set; }
-        public string? FTPPath { get; set; }
+        public string? FTPFolderPath { get; set; }
+        public string? FileName { get; set; }
     }
 }

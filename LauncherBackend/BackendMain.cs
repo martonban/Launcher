@@ -23,10 +23,7 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-            DownloadManager downloadManager = new DownloadManager();
-            downloadManager.ConnectToServer("C:/Server/FTP");
-            downloadManager.IstallApplication("/Apps", "/BagComposer.zip", "C:/Server/Test", "BagComposer");
-            downloadManager.IstallApplication("/Games", "/Classy_Clash_v1.0.0.zip", "C:/Server/Test", "ClassyClash");
+            
         }
     }
 }
