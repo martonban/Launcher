@@ -23,7 +23,7 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-            
+            AppStaus appStatus = new AppStaus();
         }
     }
 }
