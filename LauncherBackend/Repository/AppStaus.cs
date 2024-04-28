@@ -5,8 +5,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using LauncherBackend.Database;
 using LauncherBackend.DTOs;
+using LauncherBackend.Modells;
 
 // --------------------------------------------------
 //              Launcher - AppStaus
@@ -26,8 +26,8 @@ namespace LauncherBackend.Repository
         private string appListFilePath;
         private string projectListFilePath;
 
-        private Dictionary<string, GameDTO> gameList =
-                 new Dictionary<string, GameDTO>();
+        private Dictionary<string, GameDataDTO> gameList =
+                 new Dictionary<string, GameDataDTO>();
         private Dictionary<string, AppDTO> appList =
                 new Dictionary<string, AppDTO>();
         private List<ProjectDTO> projectList = 
@@ -77,7 +77,7 @@ namespace LauncherBackend.Repository
         //-----------------------
         //        Setters
         //-----------------------
-        public void AddGame(string installPath, GameDTO game) {
+        public void AddGame(string installPath, GameDataDTO game) {
             gameList.Add(installPath, game);
         }
 
@@ -104,7 +104,7 @@ namespace LauncherBackend.Repository
         //-----------------------
         //        Setters
         //-----------------------
-        public Dictionary<string, GameDTO> GetAllGames() {
+        public Dictionary<string, GameDataDTO> GetAllGames() {
             return null;
         }
 
@@ -120,7 +120,7 @@ namespace LauncherBackend.Repository
         //--------------------------------
         //         Serializers
         //--------------------------------
-        public void SerilazeGame(Dictionary<string, GameDTO> gameList) {
+        public void SerilazeGame(Dictionary<string, GameDataDTO> gameList) {
             var option = new JsonSerializerOptions();
             option.WriteIndented = true;
             string jsonString = JsonSerializer.Serialize(gameList, option);
@@ -146,7 +146,7 @@ namespace LauncherBackend.Repository
         //--------------------------------
         public void DeserializeGame() {
             var serializationJson = File.ReadAllText(gameListFilePath);
-            gameList = JsonSerializer.Deserialize<Dictionary<string, GameDTO>>(serializationJson);
+            gameList = JsonSerializer.Deserialize<Dictionary<string, GameDataDTO>>(serializationJson);
         }
 
         public void DeserializeApps() {

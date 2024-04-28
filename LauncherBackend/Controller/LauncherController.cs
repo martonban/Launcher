@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LauncherBackend.Controller {
     public class LauncherController {
-        private LauncherRepository repository;
+        private GameDatabaseRepository repository;
 
 
         //--------------------------

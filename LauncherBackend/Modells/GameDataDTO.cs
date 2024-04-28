@@ -6,17 +6,20 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 // --------------------------------------------------
-//              Launcher - GameDTO
+//              Launcher - GameDataDTO
 //              Márton Bán (C) 2024
 //  
-//  This is the GameModell DTO object for the Launcher's
-//  backend. This class contain the metadata for each game 
+//  This is the GameDataDTO object for the database 
+//  to store the game informations and the place on the
+//  FTP server. We are gonna use this data DTO in the
+//  client modell
 //---------------------------------------------------
 
-namespace LauncherBackend.Database
+namespace LauncherBackend.Modells
 {
-    public class GameDTO
+    public class GameDataDTO
     {
+        public int? Id { get; set; }
         public string? GameTitle { get; set; }
         public string? Description { get; set; }
         public string? Developer { get; set; }

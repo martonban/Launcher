@@ -1,4 +1,5 @@
-﻿using LauncherBackend.Database;
+﻿using LauncherBackend.Controller;
+using LauncherBackend.Modells;
 using LauncherBackend.Repository;
 using LauncherBackend.Services;
 using System;
@@ -23,7 +24,15 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-            AppStaus appStatus = new AppStaus();
+            List<GameDataDTO> list = new List<GameDataDTO>();
+
+            GameController controller = new GameController();
+            controller.ConnectToGameDataBase("C:/Server/Databases");
+
+            GameDataDTO gameData = new GameDataDTO();
+            
+            
+            //list = controller.GetAllGames();
         }
     }
 }

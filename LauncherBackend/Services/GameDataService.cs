@@ -1,4 +1,4 @@
-﻿using LauncherBackend.Database;
+﻿using LauncherBackend.Modells;
 using LauncherBackend.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 namespace LauncherBackend.Services
 {
     public class GameDataService {
-        private LauncherRepository launcherRepository;
+        private GameDatabaseRepository gameDatabaseRepository = new GameDatabaseRepository();
 
-        public GameDataService(string path) {
-            launcherRepository = new LauncherRepository();
-            launcherRepository.ConnectGameDatabase(path);
+        public void ConnectToGameDataBase(string url) {    
+            gameDatabaseRepository.ConnectToGameDataBase(url);           
         }
 
-        public void AddGame(GameDTO game) { 
-            launcherRepository.AddGame(game);
+        public void AddGame(GameDataDTO game) {
+            gameDatabaseRepository.AddGame(game);
         }
 
-        public List<GameDTO> GetAllGames() {
-            return launcherRepository.GetAllGames();
+        public List<GameDataDTO> GetAllGames() {
+            return gameDatabaseRepository.GetAllGames();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Text.Json;
+using LauncherBackend.Exceptions;
+using LauncherBackend.Modells;
 
 // --------------------------------------------------
 //              Launcher - GameDataBase
@@ -14,31 +16,27 @@ namespace LauncherBackend.Database
     {
         // Data Fileds
         private string databaseFullPath;
-        private List<GameDTO> gameDataBase = new List<GameDTO>();
+        private List<GameDataDTO> gameDataBase = new List<GameDataDTO>();
 
-        public GameDataBase(string databasePath)
+        public void ConnectToGameDataBase(string databasePath)
         {
             this.databaseFullPath = databasePath + "/games_libary.json";
-            if (CheckFileIsExist(this.databaseFullPath))
-            {
-                Deserialize(this.databaseFullPath);
-            }
-            else
-            {
-
+            if (!CheckFileIsExist(this.databaseFullPath)) {
+                throw new GameDataBaseConnectionException();
             }
         }
 
-        public void InsertGame(GameDTO gameDTO)
-        {
+        public void InsertGame(GameDataDTO gameDTO) {
             gameDataBase.Add(gameDTO);
             Serialize();
         }
 
-        public List<GameDTO> GetAllGames()
+        public List<GameDataDTO> GetAllGames()
         {
             return gameDataBase;
         }
+
+
 
 
         //---------------------------------
@@ -47,7 +45,7 @@ namespace LauncherBackend.Database
         private void Deserialize(string ftpPath)
         {
             var serializationJson = File.ReadAllText(ftpPath);
-            gameDataBase = JsonSerializer.Deserialize<List<GameDTO>>(serializationJson);
+            gameDataBase = JsonSerializer.Deserialize<List<GameDataDTO>>(serializationJson);
         }
 
         private void Serialize()
