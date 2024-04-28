@@ -24,9 +24,12 @@ namespace LauncherBackend.Modells
         public string? Description { get; set; }
         public string? Developer { get; set; }
         public string? Publisher { get; set; }
-        public string? IconPath { get; set; }
-        public string? ThumbnailPath { get; set; }
+        // Installation Data
         public string? FTPFolderPath { get; set; }
         public string? FileName { get; set; }
+        // Media Data
+        public string? IconPath { get; set; }
+        public string? ThumbnailPath { get; set; }
+
     }
 }

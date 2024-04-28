@@ -29,10 +29,33 @@ namespace LauncherBackend
             GameController controller = new GameController();
             controller.ConnectToGameDataBase("C:/Server/Databases");
 
-            GameDataDTO gameData = new GameDataDTO();
-            
-            
-            //list = controller.GetAllGames();
+            GameDataDTO game1 = new GameDataDTO {
+                Id = 1,
+                GameTitle = "Classy Clash",
+                Description = "A Zelda like adventure game powered by the Nebula Pax Engine",
+                Developer = "Marton Ban",
+                Publisher = "Emfis Games",
+                FTPFolderPath = "/Games",
+                FileName = "/Classy_Clash_v1.0.0.zip",
+                IconPath = "/Media/Games/ClassyClash/icon.png",
+                ThumbnailPath = "/Media/Games/ClassyClash/cover.png"
+            };
+
+            GameDataDTO game2 = new GameDataDTO {
+                Id = 2,
+                GameTitle = "The Third Wish",
+                Description = "The Third Wish is a sci-fi point and click adventure about a family and fate and consequence.",
+                Developer = "George Broussard",
+                Publisher = "George Broussard",
+                FTPFolderPath = "/Games",
+                FileName = "/TheThirdWish_v14.zip",
+                IconPath = "/Media/Games/TheThirdWish/icon.png",
+                ThumbnailPath = "/Media/Games/TheThirdWish/cover.png"
+            };
+
+            controller.InsertGameToTheDatabase(game1);
+            controller.InsertGameToTheDatabase(game2);
+
         }
     }
 }

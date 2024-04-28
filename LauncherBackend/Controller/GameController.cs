@@ -14,9 +14,9 @@ namespace LauncherBackend.Controller {
             gameDataService.ConnectToGameDataBase(url);
         }
 
-
-        public List<GameDataDTO> GetAllGames() { 
-            return gameDataService.GetAllGames();
+        public void InsertGameToTheDatabase(GameDataDTO game) {
+            gameDataService.InsertGame(game);
         }
+
     }
 }

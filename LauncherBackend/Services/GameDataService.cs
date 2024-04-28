@@ -1,4 +1,5 @@
-﻿using LauncherBackend.Modells;
+﻿using LauncherBackend.Exceptions;
+using LauncherBackend.Modells;
 using LauncherBackend.Repository;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,12 @@ namespace LauncherBackend.Services
             gameDatabaseRepository.ConnectToGameDataBase(url);           
         }
 
-        public void AddGame(GameDataDTO game) {
-            gameDatabaseRepository.AddGame(game);
+        public void InsertGame(GameDataDTO game) {
+            try {
+                gameDatabaseRepository.InsertGame(game);
+            } catch (GameDataBaseConnectionException exp) { 
+                Console.WriteLine(exp.Message);
+            }
         }
 
         public List<GameDataDTO> GetAllGames() {
