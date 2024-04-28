@@ -33,8 +33,13 @@ namespace LauncherBackend.Services
             }
         }
 
-        public List<GameDataDTO> GetAllGames() {
-            return gameDatabaseRepository.GetAllGames();
+        public List<GameDataDTO> GetAllGamesFromDatabase() {
+            try {
+                return gameDatabaseRepository.GetAllGames();
+            } catch (GameDataBaseConnectionException exp) {
+                Console.WriteLine(exp.Message);
+            }
+            return new List<GameDataDTO>();
         }
     }
 }

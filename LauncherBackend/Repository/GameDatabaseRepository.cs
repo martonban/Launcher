@@ -66,7 +66,7 @@ namespace LauncherBackend.Repository
             if (doesGameDatabaseConnected) {
                 return gameDataBase.GetAllGames();
             } else {
-                throw new GameDataBaseActionException();
+                throw new GameDataBaseConnectionException("Database in not connected, please connect to the database! Use: GameController::ConnectToGameDataBase(string url) function!");
             }
         }
     }

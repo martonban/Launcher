@@ -29,47 +29,11 @@ namespace LauncherBackend
             GameController controller = new GameController();
             controller.ConnectToGameDataBase("C:/Server/Databases");
 
-            GameDataDTO game1 = new GameDataDTO {
-                Id = 1,
-                GameTitle = "Classy Clash",
-                Description = "A Zelda like adventure game powered by the Nebula Pax Engine",
-                Developer = "Marton Ban",
-                Publisher = "Emfis Games",
-                FTPFolderPath = "/Games",
-                FileName = "/Classy_Clash_v1.0.0.zip",
-                IconPath = "/Media/Games/ClassyClash/icon.png",
-                ThumbnailPath = "/Media/Games/ClassyClash/cover.png"
-            };
+            List<GameDataDTO> games = controller.GetAllGamesFromDatabase();
 
-            GameDataDTO game2 = new GameDataDTO {
-                Id = 2,
-                GameTitle = "The Third Wish",
-                Description = "The Third Wish is a sci-fi point and click adventure about a family and fate and consequence.",
-                Developer = "George Broussard",
-                Publisher = "George Broussard",
-                FTPFolderPath = "/Games",
-                FileName = "/TheThirdWish_v14.zip",
-                IconPath = "/Media/Games/TheThirdWish/icon.png",
-                ThumbnailPath = "/Media/Games/TheThirdWish/cover.png"
-            };
-
-
-            GameDataDTO game3 = new GameDataDTO {
-                Id = 100,
-                GameTitle = "The Third Wish",
-                Description = "The Third Wish is a sci-fi point and click adventure about a family and fate and consequence.",
-                Developer = "George Broussard",
-                Publisher = "George Broussard",
-                FTPFolderPath = "/Games",
-                FileName = "/TheThirdWish_v14.zip",
-                IconPath = "/Media/Games/TheThirdWish/icon.png",
-                ThumbnailPath = "/Media/Games/TheThirdWish/cover.png"
-            };
-
-            controller.InsertGameToTheDatabase(game3);
-
-            GameDataDTO game = controller.GetGameByIDFromTheDatabase(100);
-            Console.WriteLine(game.GameTitle);
+            foreach (GameDataDTO game in games) {
+                Console.WriteLine(game.GameTitle + '\n');
+            }
         }
     }
 }

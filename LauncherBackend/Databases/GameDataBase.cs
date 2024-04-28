@@ -51,19 +51,16 @@ namespace LauncherBackend.Database
         }
 
 
-        public List<GameDataDTO> GetAllGames()
-        {
+        public List<GameDataDTO> GetAllGames(){
+            Refresh();
             return gameDataBase;
         }
-
-
 
 
         //---------------------------------
         //       (De)Serialization
         //---------------------------------
-        private void Deserialize(string ftpPath)
-        {
+        private void Deserialize(string ftpPath) {
             var serializationJson = File.ReadAllText(ftpPath);
             try {
                 gameDataBase = JsonSerializer.Deserialize<List<GameDataDTO>>(serializationJson);
@@ -73,8 +70,7 @@ namespace LauncherBackend.Database
             
         }
 
-        private void Serialize()
-        {
+        private void Serialize() {
             var option = new JsonSerializerOptions();
             option.WriteIndented = true;
             string jsonString = JsonSerializer.Serialize(gameDataBase, option);
@@ -91,14 +87,11 @@ namespace LauncherBackend.Database
         }
 
 
-        private bool CheckFileIsExist(string path)
-        {
-            if (File.Exists(path))
-            {
+        private bool CheckFileIsExist(string path) {
+            if (File.Exists(path)) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
