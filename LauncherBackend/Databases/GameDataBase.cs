@@ -28,6 +28,7 @@ namespace LauncherBackend.Database
         }
 
         public void InsertGame(GameDataDTO gameDTO) {
+            Refresh();
             gameDataBase.Add(gameDTO);
             Serialize();
         }
@@ -57,7 +58,12 @@ namespace LauncherBackend.Database
         private void Deserialize(string ftpPath)
         {
             var serializationJson = File.ReadAllText(ftpPath);
-            gameDataBase = JsonSerializer.Deserialize<List<GameDataDTO>>(serializationJson);
+            try {
+                gameDataBase = JsonSerializer.Deserialize<List<GameDataDTO>>(serializationJson);
+            } catch (JsonException exp) {
+                Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
+            }
+            
         }
 
         private void Serialize()
