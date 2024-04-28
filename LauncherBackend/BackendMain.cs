@@ -24,16 +24,10 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-            List<GameDataDTO> list = new List<GameDataDTO>();
-
             GameController controller = new GameController();
             controller.ConnectToGameDataBase("C:/Server/Databases");
+            
 
-            List<GameDataDTO> games = controller.GetAllGamesFromDatabase();
-
-            foreach (GameDataDTO game in games) {
-                Console.WriteLine(game.GameTitle + '\n');
-            }
         }
     }
 }
