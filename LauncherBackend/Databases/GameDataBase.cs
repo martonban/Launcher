@@ -28,9 +28,16 @@ namespace LauncherBackend.Database
         }
 
         public void InsertGame(GameDataDTO gameDTO) {
-            Refresh();
-            gameDataBase.Add(gameDTO);
-            Serialize();
+            int idCheck = (int)gameDTO.Id;
+            try {
+                GameDataDTO temp = GetGameByID(idCheck);
+                if (temp.Id != null) {
+                    throw new GameIsExistsInTheDataBaseWithThisIDExeption("This Item is exists in the database already!");
+                } 
+            } catch (GameIsNotExistedInTheDatabaseException exp) {
+                gameDataBase.Add(gameDTO);
+                Serialize();
+            }
         }
 
         public GameDataDTO GetGameByID(int requestedId) {

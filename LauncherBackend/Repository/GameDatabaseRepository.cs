@@ -51,7 +51,11 @@ namespace LauncherBackend.Repository
 
         public void InsertGame(GameDataDTO game) {
             if (doesGameDatabaseConnected) {
-                gameDataBase.InsertGame(game);
+                try {
+                    gameDataBase.InsertGame(game);
+                } catch (GameIsExistsInTheDataBaseWithThisIDExeption exp) {
+                    Console.WriteLine(exp.Message);
+                }  
             } else {
                 throw new GameDataBaseConnectionException("Database in not connected, please connect to the database! Use: GameController::ConnectToGameDataBase(string url) function!");
             }

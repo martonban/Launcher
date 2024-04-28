@@ -53,10 +53,22 @@ namespace LauncherBackend
                 ThumbnailPath = "/Media/Games/TheThirdWish/cover.png"
             };
 
-            controller.InsertGameToTheDatabase(game1);
-            controller.InsertGameToTheDatabase(game2);
 
-            GameDataDTO game = controller.GetGameByIDFromTheDatabase(2);
+            GameDataDTO game3 = new GameDataDTO {
+                Id = 100,
+                GameTitle = "The Third Wish",
+                Description = "The Third Wish is a sci-fi point and click adventure about a family and fate and consequence.",
+                Developer = "George Broussard",
+                Publisher = "George Broussard",
+                FTPFolderPath = "/Games",
+                FileName = "/TheThirdWish_v14.zip",
+                IconPath = "/Media/Games/TheThirdWish/icon.png",
+                ThumbnailPath = "/Media/Games/TheThirdWish/cover.png"
+            };
+
+            controller.InsertGameToTheDatabase(game3);
+
+            GameDataDTO game = controller.GetGameByIDFromTheDatabase(100);
             Console.WriteLine(game.GameTitle);
         }
     }
