@@ -18,5 +18,9 @@ namespace LauncherBackend.Controller {
             gameDataService.InsertGame(game);
         }
 
+        public GameDataDTO GetGameByIDFromTheDatabase(int id) {
+            return gameDataService.GetGameByIDFromTheDatabase(id);
+        }
+
     }
 }

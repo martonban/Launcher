@@ -35,12 +35,25 @@ namespace LauncherBackend.Repository
             }
         }
 
+        public GameDataDTO GetGameByIDFromTheDatabase(int id) {
+            if (doesGameDatabaseConnected) {
+                try {
+                    return gameDataBase.GetGameByID(id);
+                } catch (GameIsNotExistedInTheDatabaseException exp) {
+                    Console.WriteLine(exp.Message);
+                } 
+            }
+            else {
+                throw new GameDataBaseConnectionException("Database in not connected, please connect to the database! Use: GameController::ConnectToGameDataBase(string url) function!");
+            }
+            return new GameDataDTO();
+        }
+
         public void InsertGame(GameDataDTO game) {
             if (doesGameDatabaseConnected) {
                 gameDataBase.InsertGame(game);
-                Console.WriteLine("Game Has Been Added!" + game.GameTitle);
             } else {
-                throw new GameDataBaseConnectionException("Database in not connected, please connect to the database! Use: GameController::ConnectToGameDataBase(string url) function");
+                throw new GameDataBaseConnectionException("Database in not connected, please connect to the database! Use: GameController::ConnectToGameDataBase(string url) function!");
             }
             
         }

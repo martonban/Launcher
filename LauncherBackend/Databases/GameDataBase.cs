@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.ComponentModel;
+using System.Text.Json;
 using LauncherBackend.Exceptions;
 using LauncherBackend.Modells;
 
@@ -31,6 +32,17 @@ namespace LauncherBackend.Database
             Serialize();
         }
 
+        public GameDataDTO GetGameByID(int requestedId) {
+            Refresh();
+            foreach (var game in gameDataBase) {
+                if (game.Id == requestedId) {
+                    return game;
+                }
+            }
+            throw new GameIsNotExistedInTheDatabaseException("This ID is not exists int the current database!");
+        }
+
+
         public List<GameDataDTO> GetAllGames()
         {
             return gameDataBase;
@@ -60,6 +72,12 @@ namespace LauncherBackend.Database
         //---------------------------------
         //       Helper Functions
         //---------------------------------
+        private void Refresh() {
+            gameDataBase.Clear();
+            Deserialize(databaseFullPath);
+        }
+
+
         private bool CheckFileIsExist(string path)
         {
             if (File.Exists(path))

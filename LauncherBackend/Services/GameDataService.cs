@@ -16,6 +16,15 @@ namespace LauncherBackend.Services
             gameDatabaseRepository.ConnectToGameDataBase(url);           
         }
 
+        public GameDataDTO GetGameByIDFromTheDatabase(int id) {
+            try {
+                return gameDatabaseRepository.GetGameByIDFromTheDatabase(id);
+            } catch (GameDataBaseConnectionException exp) {
+                Console.WriteLine(exp.Message);
+                return new GameDataDTO();
+            }
+        }
+
         public void InsertGame(GameDataDTO game) {
             try {
                 gameDatabaseRepository.InsertGame(game);
