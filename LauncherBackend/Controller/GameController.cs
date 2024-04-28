@@ -10,7 +10,11 @@ using System.Threading.Tasks;
 namespace LauncherBackend.Controller {
     public class GameController {
         private GameDataService gameDataService = new GameDataService();
+        private FTPService ftpService = new FTPService();
 
+        //-----------------------------
+        // GameDataBase Service Calls
+        //-----------------------------
         public void ConnectToGameDataBase(string url) { 
             gameDataService.ConnectToGameDataBase(url);
         }
@@ -27,5 +31,11 @@ namespace LauncherBackend.Controller {
             return gameDataService.GetAllGamesFromDatabase();
         }
 
+        //-----------------------------
+        //     FTP Service Calls
+        //-----------------------------
+        public void ConnectToFTPServer(string url) {
+            ftpService.ConnectToFTPServer(url);
+        }
     }
 }

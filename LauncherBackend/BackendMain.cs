@@ -26,7 +26,7 @@ namespace LauncherBackend
         static void Main(string[] args) {
             GameController controller = new GameController();
             controller.ConnectToGameDataBase("C:/Server/Databases");
-            
+            controller.ConnectToFTPServer("C:/Server/FTP");
 
             GameDataDTO gameDataDTO = controller.GetGameByIDFromTheDatabase(1);
         }
