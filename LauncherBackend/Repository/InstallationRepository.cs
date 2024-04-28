@@ -18,9 +18,9 @@ using System.Threading.Tasks;
 //  If we want to install an app 
 //---------------------------------------------------
 
-namespace LauncherBackend.Services
+namespace LauncherBackend.Repository
 {
-    public class DownloadManager
+    public class InstallationRepository
     {
         private string FTPFilePath;
         private bool isConnected = false;

@@ -28,6 +28,7 @@ namespace LauncherBackend
             controller.ConnectToGameDataBase("C:/Server/Databases");
             
 
+            GameDataDTO gameDataDTO = controller.GetGameByIDFromTheDatabase(1);
         }
     }
 }
