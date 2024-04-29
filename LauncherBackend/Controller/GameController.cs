@@ -1,4 +1,5 @@
 ﻿using LauncherBackend.Exceptions;
+using LauncherBackend.Global;
 using LauncherBackend.Modells;
 using LauncherBackend.Services;
 using System;
@@ -37,7 +38,14 @@ namespace LauncherBackend.Controller {
         //  Installation Service Calls
         //-----------------------------
         public void InstallGame(GameDataDTO game, string installationPath) {
-            //installationService.InstallGame(game, installationPath, ftpService);
+            // Install the app
+            try {
+                FileSystemService.InstallGame(game, installationPath);
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        
+            // Save to the AppData
         }
     }
 }

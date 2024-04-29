@@ -36,16 +36,8 @@ namespace LauncherBackend
 
             GameDataDTO gameDataDTO = gameController.GetGameByIDFromTheDatabase(2);
 
-            //string path = FTP.GetRoot() + gameDataDTO.FTPFolderPath + gameDataDTO.FileName;
-            //string path = FTP.GetRoot() + gameDataDTO.FTPFolderPath + "notvalid.zip";
-            string path = FTP.GetRoot() + gameDataDTO.FTPFolderPath + "TheThirdWish_v14.zip";
-
-            if (FTP.IsThisFileExistInFTP(path)) {
-                Console.WriteLine("true");
-            } else { 
-                Console.WriteLine("false");
-            }
-            
+            // Install Test
+            gameController.InstallGame(gameDataDTO, "C:/Server/Test5");
         }
     }
 }

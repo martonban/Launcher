@@ -24,17 +24,21 @@ namespace LauncherBackend.Global
 {
     public static class FileSystemService
     {
-        public static void InstallGame(string ftpPath, GameDataDTO game, string installationPath)
+        public static void InstallGame(GameDataDTO game, string installationPath)
         {
-            try {
-                System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + game.FTPFolderPath + game.FileName, installationPath + "/" + game.GameTitle);
-            }
-            catch (IOException) {
-                Console.WriteLine("Error FileSystemService: Game not able to install! \n");
-                Console.WriteLine("Probably invalid Path");
+            string ftpPath = FTP.GetRoot();
+            if (CanInstall(game, installationPath)) {
+                try {
+                    System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + game.FTPFolderPath + game.FileName, installationPath + "/" + game.GameTitle);
+                } catch (IOException) {
+                    Console.WriteLine("Error FileSystemService: Game not able to install! \n");
+                    Console.WriteLine("Probably invalid Path");
+                }
+            } else {
+                throw new CannotInstallGameExeption("You can't install the game. \n" +
+                    "Installation path is not exists OR the file is not exists in the FTP server");
             }
         }
-
 
         public static bool IsPathExist(string installationPath) {
             if (Directory.Exists(installationPath)) {
@@ -43,6 +47,14 @@ namespace LauncherBackend.Global
             else {
                 return false;
             }
+        }
+
+        //-------------------------
+        //    Helper Functions
+        //-------------------------
+        private static bool CanInstall(GameDataDTO game, string installationPath) {
+            return FTP.IsThisFileExistInFTP(FTP.GetRoot() + game.FTPFolderPath + game.FileName)
+                    && IsPathExist(installationPath);
         }
     }
 }
