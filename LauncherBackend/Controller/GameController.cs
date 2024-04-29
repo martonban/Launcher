@@ -1,4 +1,5 @@
-﻿using LauncherBackend.Modells;
+﻿using LauncherBackend.Exceptions;
+using LauncherBackend.Modells;
 using LauncherBackend.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 namespace LauncherBackend.Controller {
     public class GameController {
         private GameDataService gameDataService = new GameDataService();
-        private FTPService ftpService = new FTPService();
+
 
         //-----------------------------
         // GameDataBase Service Calls
@@ -31,11 +32,12 @@ namespace LauncherBackend.Controller {
             return gameDataService.GetAllGamesFromDatabase();
         }
 
+
         //-----------------------------
-        //     FTP Service Calls
+        //  Installation Service Calls
         //-----------------------------
-        public void ConnectToFTPServer(string url) {
-            ftpService.ConnectToFTPServer(url);
+        public void InstallGame(GameDataDTO game, string installationPath) {
+            //installationService.InstallGame(game, installationPath, ftpService);
         }
     }
 }

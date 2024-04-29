@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LauncherBackend.Services {
-    internal class InstallationService {
+namespace LauncherBackend.Global {
+    public static class FTP {
+    
     }
 }

@@ -7,16 +7,6 @@ using System.Threading.Tasks;
 
 namespace LauncherBackend.Controller {
     public class LauncherController {
-        private GameDatabaseRepository repository;
-
-
-        //--------------------------
-        //       UserSetting
-        //--------------------------
-
-        //--------------------------
-        //        GameData
-        //--------------------------
-        private string applicationCurrentPath = AppDomain.CurrentDomain.BaseDirectory;
+    
     }
 }

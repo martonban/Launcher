@@ -1,6 +1,6 @@
 ﻿using LauncherBackend.Controller;
 using LauncherBackend.Modells;
-using LauncherBackend.Repository;
+using LauncherBackend.Global;
 using LauncherBackend.Services;
 using System;
 using System.Collections.Generic;
@@ -24,11 +24,13 @@ namespace LauncherBackend
 {
     public class BackendMain {
         static void Main(string[] args) {
-            GameController controller = new GameController();
-            controller.ConnectToGameDataBase("C:/Server/Databases");
-            controller.ConnectToFTPServer("C:/Server/FTP");
+            GameController gameController = new GameController();
 
-            GameDataDTO gameDataDTO = controller.GetGameByIDFromTheDatabase(1);
+
+            gameController.ConnectToGameDataBase("C:/Server/Databases");
+
+            //controller.InstallGame(gameDataDTO, "C:/Server/Test");
+            
         }
     }
 }
