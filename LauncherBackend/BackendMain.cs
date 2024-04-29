@@ -26,10 +26,25 @@ namespace LauncherBackend
         static void Main(string[] args) {
             GameController gameController = new GameController();
 
+            try {
+                FTP.Connect("C:/Server/FTP");
+            } catch (Exception e) {
+                Console.WriteLine(e);
+            }
 
             gameController.ConnectToGameDataBase("C:/Server/Databases");
 
-            //controller.InstallGame(gameDataDTO, "C:/Server/Test");
+            GameDataDTO gameDataDTO = gameController.GetGameByIDFromTheDatabase(2);
+
+            //string path = FTP.GetRoot() + gameDataDTO.FTPFolderPath + gameDataDTO.FileName;
+            //string path = FTP.GetRoot() + gameDataDTO.FTPFolderPath + "notvalid.zip";
+            string path = FTP.GetRoot() + gameDataDTO.FTPFolderPath + "TheThirdWish_v14.zip";
+
+            if (FTP.IsThisFileExistInFTP(path)) {
+                Console.WriteLine("true");
+            } else { 
+                Console.WriteLine("false");
+            }
             
         }
     }

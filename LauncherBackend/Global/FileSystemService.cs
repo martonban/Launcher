@@ -22,47 +22,27 @@ using System.Threading.Tasks;
 
 namespace LauncherBackend.Global
 {
-    public class FileSystemService
+    public static class FileSystemService
     {
-        public void InstallGame(string ftpPath, GameDataDTO game, string installationPath)
+        public static void InstallGame(string ftpPath, GameDataDTO game, string installationPath)
         {
-            //if (CanGameInstall(ftpPath, game, installationPath)) {
-            try
-            {
+            try {
                 System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + game.FTPFolderPath + game.FileName, installationPath + "/" + game.GameTitle);
             }
-            catch (IOException)
-            {
+            catch (IOException) {
                 Console.WriteLine("Error FileSystemService: Game not able to install! \n");
                 Console.WriteLine("Probably invalid Path");
             }
-            //} else {
-            //throw new CannotInstallGameExeption();
-            //}
         }
 
-        //------------------
-        //    Checker
-        //------------------
-        //private bool CanGameInstall(string ftpPath, GameDataDTO game, string installationPath) {
-        //return (IsItExistsInTheFTP(ftpPath, game) && InstallationPathIsExist(installationPath));
-        //}
 
-        private bool InstallationPathIsExist(string installationPath)
-        {
-            if (Directory.Exists(installationPath))
-            {
+        public static bool IsPathExist(string installationPath) {
+            if (Directory.Exists(installationPath)) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
-
-        //private bool IsItExistsInTheFTP(string ftpPath, GameDataDTO game) { 
-
-        //}
-
     }
 }
