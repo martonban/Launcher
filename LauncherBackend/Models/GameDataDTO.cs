@@ -15,10 +15,8 @@ using System.Threading.Tasks;
 //  client modell
 //---------------------------------------------------
 
-namespace LauncherBackend.Modells
-{
-    public class GameDataDTO
-    {
+namespace LauncherBackend.Modells {
+    public class GameDataDTO {
         public int? Id { get; set; }
         public string? GameTitle { get; set; }
         public string? Description { get; set; }
@@ -30,6 +28,5 @@ namespace LauncherBackend.Modells
         // Media Data
         public string? IconPath { get; set; }
         public string? ThumbnailPath { get; set; }
-
     }
 }
