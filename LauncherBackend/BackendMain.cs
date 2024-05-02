@@ -31,7 +31,6 @@ namespace LauncherBackend
             //---------------------------------
             //       AppData Connection
             //---------------------------------
-            /*
             AppDataSaver appDataSaver = new AppDataSaver();
 
             try {
@@ -39,13 +38,12 @@ namespace LauncherBackend
             } catch (Exception exp) {
                 Console.WriteLine(exp.Message);
             }
-
+            
             try {
                 AppDataController.AttachAppdataSaver(appDataSaver);
             } catch (Exception exp) {
                Console.WriteLine(exp.Message);
             }
-            */
 
             //---------------------------------
             //         FTP Connection
@@ -92,10 +90,9 @@ namespace LauncherBackend
             //appDataSaver.RefreshGames();
 
             GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(1);
-            string installationPath1 = "C:/Server/Test";
+            string installationPath1 = "C:/Server/Test/";
 
-            AppDataController.GameInstalled(game1, installationPath1);
-
+            gameController.InstallGame(game1, installationPath1);
 
             //--------------------------------------------------------------------------
         }
