@@ -7,12 +7,20 @@ namespace LauncherBackend.Global {
         private static AppDataSaver? appDataSaver;
 
         public static void AttachAppdataSaver(AppDataSaver saver) {
+
             if (appDataSaver != null) {
                 throw new AppDataSaverHasBeenAttachedToTheControllerException(
-                    "The contoller already has a AppDataSaver instace!"
+                        "Error: AppDataSaver already attached to the Controller!"
                     );
+            } else {
+                appDataSaver = saver;
             }
-            appDataSaver = saver;
+
+            try {
+                CanWeUseAppDataSaver();
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static bool GameInstalled(GameDataDTO game, string path) {          
@@ -45,6 +53,12 @@ namespace LauncherBackend.Global {
                 GameDataDTO = game,
                 InstallationPath = path
             };
+
+            if (FileSystemService.IsPathExist(path)) {
+                throw new CannotInstallAppException(
+                        "Error: The given Installation path is invalid!"
+                    );
+            }
 
             try {
                 CanWeUseAppDataSaver();
