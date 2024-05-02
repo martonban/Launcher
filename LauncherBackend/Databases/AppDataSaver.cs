@@ -13,37 +13,95 @@ using System.Threading.Tasks;
 
 namespace LauncherBackend.Databases {
     public class AppDataSaver {
-        // The current data 
-        private List<GameModel> games = new List<GameModel>();
+        public List<GameModel> games = new List<GameModel>();
         private List<AppDTO> apps = new List<AppDTO>();
         private List<BagProjectDTO> bagprojects = new List<BagProjectDTO>();
 
-        private bool appDataChecked = false;
-        private string rootURL = null;
+        private bool activated = false;
+        private string rootURL;
         private const string gamesURLSufix = "\\GamesAppdata.json"; 
         private const string appsURLSufix = "\\AplicationsAppdata.json"; 
-        private const string bagProjectsURLSufix = "\\BagProjectsAppdata.json"; 
+        private const string bagProjectsURLSufix = "\\BagProjectsAppdata.json";
 
+
+        //---------------------------------------------------------------------
+        //                          Initialize Functions
+        //---------------------------------------------------------------------
         public AppDataSaver() { }
 
         public void Activate() {
             string path = Directory.GetCurrentDirectory() + "\\appdata";
+            bool directoryIsReady = false;
+            bool gamesAreReady = false;
+            bool applicationsAreReady = false;
+            bool bagProjectsAreReady = false;
+
+            if (IsAppDataDirectoryExists(path)) {
+                directoryIsReady = true;
+            }
+
+            if (IsGameDataExist(path)) {
+                gamesAreReady = true;
+            }
+
+            if (IsApplicationDataExist(path)) {
+                applicationsAreReady = true;
+            }
+
+            if (IsBagProjectsDataExist(path)) {
+                bagProjectsAreReady = true;
+            }
+
+            if (directoryIsReady && gamesAreReady && applicationsAreReady 
+                    && bagProjectsAreReady) {
+                activated = true;  
+            }
+
+            // TODO: Deserialize
+        }
+
+        //---------------------------------------------------------------------
+        //                    Activation Function's Helpers
+        //---------------------------------------------------------------------
+        public bool IsAppDataDirectoryExists(string path) {
             if (FileSystemService.IsPathExist(path)) {
-                appDataChecked = true;
-                rootURL = path;
-                //RefreshGames();
-                //RefreshApps();
-                //RefreshBagProjects();
+                return true;
             } else {
                 Directory.CreateDirectory(path);
-                appDataChecked = true;
-                rootURL = path;
+                return true;
             }
         }
 
-        public bool GetStatus() {
-            return appDataChecked;
+        private bool IsGameDataExist(string path) {
+            if (File.Exists(path + gamesURLSufix)) {
+                return true;
+            } else {
+                File.Copy(Assets.Files.File1, path + gamesURLSufix);
+                return true;
+            }
         }
+
+        private bool IsApplicationDataExist(string path) {
+            if (File.Exists(path + appsURLSufix)) {
+                return true;
+            } else {
+                File.Copy(Assets.Files.File2, path + appsURLSufix);
+                return true;
+            }
+        }
+
+        private bool IsBagProjectsDataExist(string path) {
+            if (File.Exists(path + bagProjectsURLSufix)) {
+                return true;
+            } else {
+                File.Copy(Assets.Files.File3, path + bagProjectsURLSufix);
+                return true;
+            }
+        }
+
+        //---------------------------------------------------------------------
+        //                        Manipulate Data Functions
+        //---------------------------------------------------------------------
 
         public void SaveGame(GameModel model) {
             RefreshGames();
@@ -60,6 +118,10 @@ namespace LauncherBackend.Databases {
             }
         }
 
+        //---------------------------------------------------------------------
+        //                          Helper Functions
+        //---------------------------------------------------------------------
+
         private void TryToRemoveGame(string URL) {
             foreach (GameModel game in games) {
                 if (game.InstallationPath == URL) { 
@@ -72,9 +134,9 @@ namespace LauncherBackend.Databases {
             }
         }
 
-        //-----------------------------------
-        //            GETTERS
-        //-----------------------------------
+        //---------------------------------------------------------------------
+        //                              GETTERS
+        //---------------------------------------------------------------------
         public List<GameModel> GetAllGamesFromAppData() {
             return games;
         }
@@ -87,9 +149,13 @@ namespace LauncherBackend.Databases {
             return bagprojects;
         }
 
-        //------------------------------------
-        //  Serialization Functions - Games
-        //------------------------------------
+        public bool GetStatus() {
+            return activated;
+        }
+
+        //---------------------------------------------------------------------
+        //                  Serialization Functions - Games
+        //---------------------------------------------------------------------
         public void RefreshGames() { 
             games.Clear();
             DeserializeGames();
@@ -111,9 +177,9 @@ namespace LauncherBackend.Databases {
             }
         }
 
-        //------------------------------------
-        //  Serialization Functions - Apps
-        //------------------------------------
+        //---------------------------------------------------------------------
+        //                     Serialization Functions - Apps
+        //---------------------------------------------------------------------
         public void RefreshApps() {
             apps.Clear();
             DeserializeApps();
@@ -135,9 +201,9 @@ namespace LauncherBackend.Databases {
             }
         }
 
-        //--------------------------------------
-        //  Serialization Functions - Projects
-        //--------------------------------------
+        //---------------------------------------------------------------------
+        //                    Serialization Functions - Projects
+        //---------------------------------------------------------------------
         public void RefreshBagProjects() {
             bagprojects.Clear();
             DeserializeBagProjects();

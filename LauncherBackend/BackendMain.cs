@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LauncherBackend.Databases;
 using LauncherBackend.Exceptions;
+using static System.Net.Mime.MediaTypeNames;
 
 // --------------------------------------------------
 //              Launcher - BackendMain
@@ -34,17 +35,15 @@ namespace LauncherBackend
 
             try {
                 appDataSaver.Activate();
-            } catch (Exception e) {
-                Console.WriteLine(e.Message);
+            } catch (Exception exp) {
+                Console.WriteLine(exp.Message);
             }
-
 
             try {
                 AppDataController.AttachAppdataSaver(appDataSaver);
-            } catch (AppDataSaverHasBeenAttachedToTheControllerException exp) {
+            } catch (Exception exp) {
                 Console.WriteLine(exp.Message);
             }
-            
 
             //---------------------------------
             //         FTP Connection
@@ -68,12 +67,33 @@ namespace LauncherBackend
             //--------------------------------------------------------------------------
 
 
+            GameDataDTO game2 = gameController.GetGameByIDFromTheDatabase(1);
+            GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(2);
+            string installationPath1 = "C:/Server/Test";
+            string installationPath2 = "C:/Server/Test";
+
+            GameModel gameModel1 = new GameModel {
+                GameDataDTO = game1,
+                InstallationPath = installationPath1
+            };
+
+
+            GameModel gameModel2 = new GameModel {
+                GameDataDTO = game2,
+                InstallationPath = installationPath2
+            };
+
+            //appDataSaver.games.Add(gameModel1);
+            //appDataSaver.games.Add(gameModel2);
+
+            //appDataSaver.DeserializeGames();
             
-            GameDataDTO gameDataDTO = gameController.GetGameByIDFromTheDatabase(2);
 
+            //List<GameModel> gamesSerialization = appDataSaver.GetAllGamesFromAppData();
 
-
-
+            //foreach (GameModel game in gamesSerialization) {
+                //Console.WriteLine(game.InstallationPath);
+            //}
 
 
             //--------------------------------------------------------------------------
