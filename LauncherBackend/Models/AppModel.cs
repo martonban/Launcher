@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LauncherBackend.Models {
-    internal class AppModel {
+    public class AppModel {
+        public AppDTO? App { get; set; }
+        public string? InstallationPath { get; set; } 
     }
 }
