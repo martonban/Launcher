@@ -66,8 +66,7 @@ namespace LauncherBackend.Database
                 gameDataBase = JsonSerializer.Deserialize<List<GameDataDTO>>(serializationJson);
             } catch (JsonException exp) {
                 Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
-            }
-            
+            }  
         }
 
         private void Serialize() {

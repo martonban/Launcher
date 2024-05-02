@@ -44,8 +44,11 @@ namespace LauncherBackend.Controller {
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }
-        
-            // Save to the AppData
+
+            // Administrate the game has been installed
+            //if (AppDataController.GameInstalled(game, installationPath)) {
+            //    Console.WriteLine("Game has been istalled and saved!");
+            //} 
         }
     }
 }
