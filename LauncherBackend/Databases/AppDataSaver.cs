@@ -20,18 +20,18 @@ namespace LauncherBackend.Databases {
 
         private bool appDataChecked = false;
         private string rootURL = null;
-        private const string gamesURLSufix = "/GamesAppdata.json"; 
-        private const string appsURLSufix = "/AplicationsAppdata.json"; 
-        private const string bagProjectsURLSufix = "/BagProjectsAppdata.json"; 
+        private const string gamesURLSufix = "\\GamesAppdata.json"; 
+        private const string appsURLSufix = "\\AplicationsAppdata.json"; 
+        private const string bagProjectsURLSufix = "\\BagProjectsAppdata.json"; 
 
         public AppDataSaver() { }
 
         public void Activate() {
-            string path = Directory.GetCurrentDirectory() + "/appdata";
+            string path = Directory.GetCurrentDirectory() + "\\appdata";
             if (FileSystemService.IsPathExist(path)) {
                 appDataChecked = true;
                 rootURL = path;
-                RefreshGames();
+                //RefreshGames();
                 //RefreshApps();
                 //RefreshBagProjects();
             } else {
@@ -70,6 +70,21 @@ namespace LauncherBackend.Databases {
                         "Error: No games are installed at this URL!"
                     );
             }
+        }
+
+        //-----------------------------------
+        //            GETTERS
+        //-----------------------------------
+        public List<GameModel> GetAllGamesFromAppData() {
+            return games;
+        }
+
+        public List<AppDTO> GetAllApplicationFromAppData() {
+            return apps;
+        }
+
+        public List<BagProjectDTO> GetBagProjectsFromAppData() {
+            return bagprojects;
         }
 
         //------------------------------------
