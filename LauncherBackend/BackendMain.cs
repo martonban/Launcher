@@ -66,7 +66,7 @@ namespace LauncherBackend
             //                          TEST BRANCH 
             //--------------------------------------------------------------------------
 
-
+            /*
             GameDataDTO game2 = gameController.GetGameByIDFromTheDatabase(1);
             GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(2);
             string installationPath1 = "C:/Server/Test";
@@ -83,17 +83,18 @@ namespace LauncherBackend
                 InstallationPath = installationPath2
             };
 
-            //appDataSaver.games.Add(gameModel1);
-            //appDataSaver.games.Add(gameModel2);
+            appDataSaver.games.Add(gameModel1);
+            appDataSaver.games.Add(gameModel2);
+            */
 
-            //appDataSaver.DeserializeGames();
+            //appDataSaver.RefreshGames();
+       
             
+            List<GameModel> gamesSerialization = appDataSaver.GetAllGamesFromAppData();
 
-            //List<GameModel> gamesSerialization = appDataSaver.GetAllGamesFromAppData();
-
-            //foreach (GameModel game in gamesSerialization) {
-                //Console.WriteLine(game.InstallationPath);
-            //}
+            foreach (GameModel game in gamesSerialization) {
+                Console.WriteLine(game.GameDataDTO.GameTitle);
+            }
 
 
             //--------------------------------------------------------------------------

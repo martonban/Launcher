@@ -6,6 +6,7 @@ using LauncherBackend.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -54,10 +55,10 @@ namespace LauncherBackend.Databases {
 
             if (directoryIsReady && gamesAreReady && applicationsAreReady 
                     && bagProjectsAreReady) {
-                activated = true;  
+                activated = true;
+                rootURL = path;
+                RefreshEverythig();
             }
-
-            // TODO: Deserialize
         }
 
         //---------------------------------------------------------------------
@@ -98,6 +99,15 @@ namespace LauncherBackend.Databases {
                 return true;
             }
         }
+
+        public void RefreshEverythig() {
+            games.Clear();
+            apps.Clear();
+            bagprojects.Clear();
+            DeserializeGames();
+            DeserializeApps();
+            DeserializeBagProjects();
+    }
 
         //---------------------------------------------------------------------
         //                        Manipulate Data Functions
