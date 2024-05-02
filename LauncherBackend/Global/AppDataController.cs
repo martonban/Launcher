@@ -33,6 +33,7 @@ namespace LauncherBackend.Global {
             }
         }
 
+        // ITS NOT GOOD
         public static bool GameUninstalled(string path) {
             try {
                 GameUninstalledSaved(path);
@@ -54,7 +55,7 @@ namespace LauncherBackend.Global {
                 InstallationPath = path
             };
 
-            if (FileSystemService.IsPathExist(path)) {
+            if (!FileSystemService.IsPathExist(path)) {
                 throw new CannotInstallAppException(
                         "Error: The given Installation path is invalid!"
                     );

@@ -31,6 +31,7 @@ namespace LauncherBackend
             //---------------------------------
             //       AppData Connection
             //---------------------------------
+            /*
             AppDataSaver appDataSaver = new AppDataSaver();
 
             try {
@@ -42,8 +43,9 @@ namespace LauncherBackend
             try {
                 AppDataController.AttachAppdataSaver(appDataSaver);
             } catch (Exception exp) {
-                Console.WriteLine(exp.Message);
+               Console.WriteLine(exp.Message);
             }
+            */
 
             //---------------------------------
             //         FTP Connection
@@ -67,8 +69,8 @@ namespace LauncherBackend
             //--------------------------------------------------------------------------
 
             /*
-            GameDataDTO game2 = gameController.GetGameByIDFromTheDatabase(1);
-            GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(2);
+            GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(1);
+            GameDataDTO game2 = gameController.GetGameByIDFromTheDatabase(2);
             string installationPath1 = "C:/Server/Test";
             string installationPath2 = "C:/Server/Test";
 
@@ -83,18 +85,16 @@ namespace LauncherBackend
                 InstallationPath = installationPath2
             };
 
-            appDataSaver.games.Add(gameModel1);
+            
             appDataSaver.games.Add(gameModel2);
             */
 
             //appDataSaver.RefreshGames();
-       
-            
-            List<GameModel> gamesSerialization = appDataSaver.GetAllGamesFromAppData();
 
-            foreach (GameModel game in gamesSerialization) {
-                Console.WriteLine(game.GameDataDTO.GameTitle);
-            }
+            GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(1);
+            string installationPath1 = "C:/Server/Test";
+
+            AppDataController.GameInstalled(game1, installationPath1);
 
 
             //--------------------------------------------------------------------------

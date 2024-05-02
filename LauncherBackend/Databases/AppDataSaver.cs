@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace LauncherBackend.Databases {
     public class AppDataSaver {
-        public List<GameModel> games = new List<GameModel>();
+        private List<GameModel> games = new List<GameModel>();
         private List<AppDTO> apps = new List<AppDTO>();
         private List<BagProjectDTO> bagprojects = new List<BagProjectDTO>();
 
