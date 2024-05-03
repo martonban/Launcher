@@ -1,5 +1,6 @@
 ﻿using LauncherBackend.Exceptions;
 using LauncherBackend.Modells;
+using LauncherBackend.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -40,6 +41,22 @@ namespace LauncherBackend.Global
             }
         }
 
+        public static void InstallApp(AppDTO app, string installationPath) {
+            string ftpPath = FTP.GetRoot();
+            if (CanInstall(app, installationPath)) {
+                try {
+                    System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + app.FTPFolderPath + app.FileName, installationPath + "/" + app.AppName);
+                } catch (IOException) {
+                    Console.WriteLine("Error FileSystemService: App not able to install! \n");
+                    Console.WriteLine("Probably invalid Path");
+                }
+            } else {
+                throw new CannotInstallGameExeption("You can't install the app. \n" +
+                    "Installation path is not exists OR the file is not exists in the FTP server");
+            }
+        }
+
+
         public static bool IsPathExist(string installationPath) {
             if (Directory.Exists(installationPath)) {
                 return true;
@@ -53,6 +70,11 @@ namespace LauncherBackend.Global
         //    Helper Functions
         //-------------------------
         private static bool CanInstall(GameDataDTO game, string installationPath) {
+            return FTP.IsThisFileExistInFTP(FTP.GetRoot() + game.FTPFolderPath + game.FileName)
+                    && IsPathExist(installationPath);
+        }
+
+        private static bool CanInstall(AppDTO game, string installationPath) {
             return FTP.IsThisFileExistInFTP(FTP.GetRoot() + game.FTPFolderPath + game.FileName)
                     && IsPathExist(installationPath);
         }

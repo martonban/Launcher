@@ -57,31 +57,24 @@ namespace LauncherBackend
             }
 
             //---------------------------------
-            //      Database Connection
+            //      Database Connections
             //---------------------------------
             GameController gameController = new GameController();
             gameController.ConnectToGameDataBase("C:/Server/Databases");
+
+            AppController appController = new AppController();
+            appController.ConnectToApplicationDataBase("C:/Server/Databases");
 
             //--------------------------------------------------------------------------
             //                          TEST BRANCH 
             //--------------------------------------------------------------------------
 
-            AppDatabaseService appDatabaseService = new AppDatabaseService();
-            appDatabaseService.ConnectToApplicationDataBase("C:/Server/Databases");
+            List<AppDTO> list = appController.GetAllApplicationsFromDatabase();
 
-            AppDTO app1 = new AppDTO {
-                Id = 1,
-                AppName = "Composer",
-                Description = "Composer is advanced toolset to handle assets to your programming projects",
-                Suit = "Universal",
-                Version = "0.1.0",
-                FTPFolderPath = "/Apps",
-                FileName = "/Composer_v010.zip",
-                IconPath = "/Media/Apps/Composer/icon.png",
-                CoverPath = "/Media/Apps/Composer/cover.png"
-            };
+            foreach (AppDTO app in list) {
+                Console.WriteLine(app.AppName);
+            }
 
-            appDatabaseService.InsertApp(app1);
 
             //--------------------------------------------------------------------------
         }
