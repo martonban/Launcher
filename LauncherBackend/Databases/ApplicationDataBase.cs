@@ -18,7 +18,7 @@ namespace LauncherBackend.Databases {
             this.databaseFullPath = databasePath + "/application_libary.json";
             if (!CheckFileIsExist(this.databaseFullPath)) {
                 throw new ApplicationDataBaseConnectionException(
-                    "Error: Application Databas is not existed!"
+                    "Error: Application Databas is not exists!"
                 );
             }
             Console.WriteLine("Works!");
