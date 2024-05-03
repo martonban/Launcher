@@ -118,13 +118,10 @@ namespace LauncherBackend.Databases {
             SerializeApps();
         }
 
-        public void RemoveGames(string URL) {
-            RefreshGames();
-            try {
-                TryToRemoveGame(URL);
-            } catch (ThisGameIsNotExistsException exp) { 
-                Console.WriteLine(exp.Message);
-            }
+        public void SaveBagProject(BagProjectDTO project) {
+            RefreshBagProjects();
+            bagprojects.Add(project);
+            SerializeBagProjects();
         }
 
         //---------------------------------------------------------------------

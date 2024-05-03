@@ -44,9 +44,19 @@ namespace LauncherBackend.Global {
             }
         }
 
+        public static bool BagProjectAdded(BagProjectDTO project) {
+            try {
+                BagProjectAddedSaved(project);
+                return true;
+            } catch (Exception exp) {
+                Console.WriteLine(exp.Message);
+                return false;
+            }
+        }
+
 
         //---------------------------
-        // Helper Funcions for games
+        // Helper Funcions for Games
         //---------------------------
         private static void GameInstalledSaved(GameDataDTO game, string path) {
             GameModel model = new GameModel {
@@ -103,6 +113,29 @@ namespace LauncherBackend.Global {
 
         }
 
+        //-----------------------------------
+        //  Helper Funcions for BagProject
+        //-----------------------------------
+        private static void BagProjectAddedSaved(BagProjectDTO project) {
+
+            if (!FileSystemService.IsPathExist(project.InstallationPath)) {
+                throw new CannotInstallAppException(
+                        "Error: The given Installation path is invalid!"
+                    );
+            }
+
+            try {
+                CanWeUseAppDataSaver();
+            } catch (Exception) {
+                throw;
+            }
+
+            try {
+                appDataSaver.SaveBagProject(project);
+            } catch (Exception) {
+                throw;
+            }
+        }
 
 
         //---------------------------

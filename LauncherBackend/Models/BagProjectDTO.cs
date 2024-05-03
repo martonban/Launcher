@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
 namespace LauncherBackend.Models {
     public class BagProjectDTO {
         public string? ProjectTitle { get; set; }

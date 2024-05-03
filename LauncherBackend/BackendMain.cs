@@ -69,9 +69,15 @@ namespace LauncherBackend
             //                          TEST BRANCH 
             //--------------------------------------------------------------------------
 
-            AppDTO app = appController.GetApplicationByIDFromTheDatabase(1);
+            BagProjectDTO project = new BagProjectDTO {
+                ProjectTitle = "BunkerOS",
+                InstallationPath = "C:/Server/Test/Project",
+                Suit = "Bag"
+            };
 
-            appController.InstallApp(app, "C:/Server/Test");
+            if (AppDataController.BagProjectAdded(project)) {
+                Console.WriteLine("Saved!");
+            }
             //--------------------------------------------------------------------------
         }
     }
