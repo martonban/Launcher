@@ -1,6 +1,7 @@
 ﻿using LauncherBackend.Databases;
 using LauncherBackend.Exceptions;
 using LauncherBackend.Modells;
+using LauncherBackend.Models;
 
 namespace LauncherBackend.Global {
     public static class AppDataController {
@@ -33,12 +34,11 @@ namespace LauncherBackend.Global {
             }
         }
 
-        // ITS NOT GOOD
-        public static bool GameUninstalled(string path) {
+        public static bool AppInstalled(AppDTO app, string path) {
             try {
-                GameUninstalledSaved(path);
+                AppInstalledSaved(app, path);
                 return true;
-            } catch(Exception exp) {
+            } catch (Exception exp) {
                 Console.WriteLine(exp.Message);
                 return false;
             }
@@ -48,7 +48,6 @@ namespace LauncherBackend.Global {
         //---------------------------
         // Helper Funcions for games
         //---------------------------
-
         private static void GameInstalledSaved(GameDataDTO game, string path) {
             GameModel model = new GameModel {
                 GameDataDTO = game,
@@ -75,9 +74,35 @@ namespace LauncherBackend.Global {
             
         }
 
-        private static void GameUninstalledSaved(string path) { 
-            
+        //---------------------------
+        // Helper Funcions for Apps
+        //---------------------------
+        private static void AppInstalledSaved(AppDTO app, string path) {
+            AppModel model = new AppModel{
+                App = app,
+                InstallationPath = path
+            };
+
+            if (!FileSystemService.IsPathExist(path)) {
+                throw new CannotInstallAppException(
+                        "Error: The given Installation path is invalid!"
+                    );
+            }
+
+            try {
+                CanWeUseAppDataSaver();
+            } catch (Exception) {
+                throw;
+            }
+
+            try {
+                appDataSaver.SaveApp(model);
+            } catch (Exception) {
+                throw;
+            }
+
         }
+
 
 
         //---------------------------

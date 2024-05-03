@@ -3,19 +3,12 @@ using LauncherBackend.Exceptions;
 using LauncherBackend.Global;
 using LauncherBackend.Modells;
 using LauncherBackend.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace LauncherBackend.Databases {
     public class AppDataSaver {
         private List<GameModel> games = new List<GameModel>();
-        private List<AppDTO> apps = new List<AppDTO>();
+        private List<AppModel> apps = new List<AppModel>();
         private List<BagProjectDTO> bagprojects = new List<BagProjectDTO>();
 
         private bool activated = false;
@@ -119,6 +112,12 @@ namespace LauncherBackend.Databases {
             SerializeGames();
         }
 
+        public void SaveApp(AppModel model) {
+            RefreshApps();
+            apps.Add(model);
+            SerializeApps();
+        }
+
         public void RemoveGames(string URL) {
             RefreshGames();
             try {
@@ -151,7 +150,7 @@ namespace LauncherBackend.Databases {
             return games;
         }
 
-        public List<AppDTO> GetAllApplicationFromAppData() {
+        public List<AppModel> GetAllApplicationFromAppData() {
             return apps;
         }
 
@@ -205,7 +204,7 @@ namespace LauncherBackend.Databases {
         public void DeserializeApps() {
             var serializationJson = File.ReadAllText(rootURL + appsURLSufix);
             try {
-                apps = JsonSerializer.Deserialize<List<AppDTO>>(serializationJson);
+                apps = JsonSerializer.Deserialize<List<AppModel>>(serializationJson);
             } catch (JsonException exp) {
                 Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
             }

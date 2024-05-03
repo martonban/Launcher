@@ -44,9 +44,9 @@ namespace LauncherBackend.Controller {
             }
 
             //Administrate the game has been installed
-            //if (AppDataController.GameInstalled(game, installationPath)) {
-               // Console.WriteLine("Game has been istalled and saved!");
-            //}
+            if (AppDataController.AppInstalled(app, installationPath)) {
+                Console.WriteLine("Game has been istalled and saved!");
+            }
         }
     }
 }

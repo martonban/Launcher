@@ -69,13 +69,9 @@ namespace LauncherBackend
             //                          TEST BRANCH 
             //--------------------------------------------------------------------------
 
-            List<AppDTO> list = appController.GetAllApplicationsFromDatabase();
+            AppDTO app = appController.GetApplicationByIDFromTheDatabase(1);
 
-            foreach (AppDTO app in list) {
-                Console.WriteLine(app.AppName);
-            }
-
-
+            appController.InstallApp(app, "C:/Server/Test");
             //--------------------------------------------------------------------------
         }
     }
