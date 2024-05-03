@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using LauncherBackend.Databases;
 using LauncherBackend.Exceptions;
 using static System.Net.Mime.MediaTypeNames;
+using LauncherBackend.Models;
 
 // --------------------------------------------------
 //              Launcher - BackendMain
@@ -65,34 +66,40 @@ namespace LauncherBackend
             //--------------------------------------------------------------------------
             //                          TEST BRANCH 
             //--------------------------------------------------------------------------
-
-            /*
-            GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(1);
-            GameDataDTO game2 = gameController.GetGameByIDFromTheDatabase(2);
-            string installationPath1 = "C:/Server/Test";
-            string installationPath2 = "C:/Server/Test";
-
-            GameModel gameModel1 = new GameModel {
-                GameDataDTO = game1,
-                InstallationPath = installationPath1
-            };
-
-
-            GameModel gameModel2 = new GameModel {
-                GameDataDTO = game2,
-                InstallationPath = installationPath2
-            };
-
             
-            appDataSaver.games.Add(gameModel2);
-            */
+            ApplicationDataBase applicationDataBase = new ApplicationDataBase();
 
-            //appDataSaver.RefreshGames();
+            try {
+                applicationDataBase.ConnectToApplicationDataBase("C:/Server/Databases/");
+            } catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
 
-            GameDataDTO game1 = gameController.GetGameByIDFromTheDatabase(1);
-            string installationPath1 = "C:/Server/Test/";
+            AppDTO app1 = new AppDTO { 
+                Id = 1,
+                AppName = "Composer",
+                Description = "Composer is advanced toolset to handle assets to your programming projects",
+                Suit = "Universal",
+                Version = "0.1.0",
+                FTPFolderPath = "/Apps",
+                FileName = "/Composer_v010.zip",
+                IconPath = "/Media/Apps/Composer/icon.png",
+                CoverPath = "/Media/Apps/Composer/cover.png"
+            };
 
-            gameController.InstallGame(game1, installationPath1);
+            AppDTO app2 = new AppDTO {
+                Id = 2,
+                AppName = "BagAtlas",
+                Description = "BagAtlas is a 2D map Editor for Bag Engine",
+                Suit = "Bag",
+                Version = "1.0.0",
+                FTPFolderPath = "/Apps",
+                FileName = "/BagAtlas_v100.zip",
+                IconPath = "/Media/Apps/BagAtlas/icon.png",
+                CoverPath = "/Media/Apps/BagAtlas/cover.png"
+            };
+
+            applicationDataBase.InsertApplication(app2);
 
             //--------------------------------------------------------------------------
         }

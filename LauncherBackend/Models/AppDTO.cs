@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LauncherBackend.Models {
     public class AppDTO {
+        public int? Id { get; set; }
         public string? AppName { get; set; }
         public string? Description { get; set; }
         public string? Suit { get; set; }
