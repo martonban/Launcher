@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace LauncherWinFormsFrontEnd {
     public partial class Form1 : Form {
         public Form1() {
@@ -5,8 +7,13 @@ namespace LauncherWinFormsFrontEnd {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            string[] args = { "This is an argument xd" };
-            LauncherBackend.BackendMain.Main(args);
+            LauncherBackend.EntryPoint.Main();
+
+            LauncherBackend.Controller.GameController gamecontroller = new LauncherBackend.Controller.GameController();
+            string? data = "TEST";
+
+            label1.Text = data;
+
         }
     }
 }

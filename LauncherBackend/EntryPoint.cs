@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using LauncherBackend.Databases;
 using LauncherBackend.Exceptions;
-using static System.Net.Mime.MediaTypeNames;
 using LauncherBackend.Models;
 using LauncherBackend.Repository;
 
@@ -24,11 +23,8 @@ using LauncherBackend.Repository;
 
 namespace LauncherBackend
 {
-    public class BackendMain {
-        public static void Main(string[] args) {
-            
-            
-           
+    public static class EntryPoint {
+        public static void Main() {
             
             // Before we use the backend we need to establish the connection
             // between the backend and the """"servers"""" and others!
@@ -70,6 +66,8 @@ namespace LauncherBackend
 
             AppController appController = new AppController();
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
+
+            Debug.WriteLine("PLS WORK!!!"); 
 
         }
     }
