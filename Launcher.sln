@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LauncherWinForms", "LauncherWinForms\LauncherWinForms.csproj", "{DC6AE168-78C6-4BED-BBEB-24FF72806FB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LauncherBackend", "LauncherBackend\LauncherBackend.csproj", "{94C7B30C-EEC8-4346-896F-B7D4E25E3E39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LauncherBackend", "LauncherBackend\LauncherBackend.csproj", "{94C7B30C-EEC8-4346-896F-B7D4E25E3E39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LauncherWinFormsFrontEnd", "LauncherWinFormsFrontEnd\LauncherWinFormsFrontEnd.csproj", "{B729AB01-8BB9-48EE-A475-D13BCF52108E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{94C7B30C-EEC8-4346-896F-B7D4E25E3E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94C7B30C-EEC8-4346-896F-B7D4E25E3E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94C7B30C-EEC8-4346-896F-B7D4E25E3E39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B729AB01-8BB9-48EE-A475-D13BCF52108E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B729AB01-8BB9-48EE-A475-D13BCF52108E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B729AB01-8BB9-48EE-A475-D13BCF52108E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B729AB01-8BB9-48EE-A475-D13BCF52108E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

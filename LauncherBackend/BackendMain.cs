@@ -25,7 +25,11 @@ using LauncherBackend.Repository;
 namespace LauncherBackend
 {
     public class BackendMain {
-        static void Main(string[] args) {
+        public static void Main(string[] args) {
+            
+            
+           
+            
             // Before we use the backend we need to establish the connection
             // between the backend and the """"servers"""" and others!
             // Note: In the future I can add a Connection Mananger 
@@ -34,6 +38,8 @@ namespace LauncherBackend
             //       AppData Connection
             //---------------------------------
             AppDataSaver appDataSaver = new AppDataSaver();
+
+
 
             try {
                 appDataSaver.Activate();
@@ -65,19 +71,6 @@ namespace LauncherBackend
             AppController appController = new AppController();
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
 
-            //--------------------------------------------------------------------------
-            //                          TEST BRANCH 
-            //--------------------------------------------------------------------------
-
-            BagProjectDTO project = new BagProjectDTO {
-                ProjectTitle = "BunkerOS",
-                InstallationPath = "C:/Server/Test/Project",
-                Suit = "Bag"
-            };
-
-            ProjectController projectController = new ProjectController();
-            projectController.BagProjectWizard(project);
-            //--------------------------------------------------------------------------
         }
     }
 }
