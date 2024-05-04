@@ -75,9 +75,8 @@ namespace LauncherBackend
                 Suit = "Bag"
             };
 
-            if (AppDataController.BagProjectAdded(project)) {
-                Console.WriteLine("Saved!");
-            }
+            ProjectController projectController = new ProjectController();
+            projectController.BagProjectWizard(project);
             //--------------------------------------------------------------------------
         }
     }

@@ -7,6 +7,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,6 +49,21 @@ namespace LauncherBackend.Global
                     System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + app.FTPFolderPath + app.FileName, installationPath + "/" + app.AppName);
                 } catch (IOException) {
                     Console.WriteLine("Error FileSystemService: App not able to install! \n");
+                    Console.WriteLine("Probably invalid Path");
+                }
+            } else {
+                throw new CannotInstallGameExeption("You can't install the app. \n" +
+                    "Installation path is not exists OR the file is not exists in the FTP server");
+            }
+        }
+
+        public static void InstallBagProject(BagProjectDTO project) {
+            string ftpPath = FTP.GetRoot();
+            if (IsPathExist(project.InstallationPath)) {
+                try {
+                    System.IO.Compression.ZipFile.ExtractToDirectory(Assets.Files.BagTemplate, project.InstallationPath + "/" + project.ProjectTitle);
+                } catch (IOException) {
+                    Console.WriteLine("Error FileSystemService: Project not able to install! \n");
                     Console.WriteLine("Probably invalid Path");
                 }
             } else {

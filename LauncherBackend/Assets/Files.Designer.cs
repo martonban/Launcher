@@ -61,6 +61,15 @@ namespace LauncherBackend.Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C:\Project\Emfis Graphics\BAG Engine\EngineSourceCode\Launcher\LauncherBackend\Assets\BagProjectStarter.zip.
+        /// </summary>
+        internal static string BagTemplate {
+            get {
+                return ResourceManager.GetString("BagTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to C:\Project\Emfis Graphics\BAG Engine\EngineSourceCode\Launcher\LauncherBackend\Assets\GamesAppdata.json.
         /// </summary>
         internal static string File1 {
