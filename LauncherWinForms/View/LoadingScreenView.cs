@@ -28,9 +28,9 @@ namespace LauncherWinForms {
             this.Enabled = true;
             this.Cursor = Cursors.Default;
             this.Hide();
-            var hub = new MainLauncherView();
-            hub.Closed += (s, args) => this.Close();
-            hub.Show();
+            //var hub = new MainLauncherView();
+            //hub.Closed += (s, args) => this.Close();
+           // hub.Show();
         }
 
     }
