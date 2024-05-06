@@ -23,7 +23,10 @@ using LauncherBackend.Repository;
 
 namespace LauncherBackend
 {
-    public static class EntryPoint {
+    public static class BackendMain {
+
+        public static string dataTest = "Data by backend";
+
         public static void Main() {
             
             // Before we use the backend we need to establish the connection
@@ -34,8 +37,6 @@ namespace LauncherBackend
             //       AppData Connection
             //---------------------------------
             AppDataSaver appDataSaver = new AppDataSaver();
-
-
 
             try {
                 appDataSaver.Activate();
@@ -66,8 +67,6 @@ namespace LauncherBackend
 
             AppController appController = new AppController();
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
-
-            Debug.WriteLine("PLS WORK!!!"); 
 
         }
     }

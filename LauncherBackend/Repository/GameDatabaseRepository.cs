@@ -3,6 +3,7 @@ using LauncherBackend.Exceptions;
 using LauncherBackend.Modells;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +31,9 @@ namespace LauncherBackend.Repository
             try {
                 gameDataBase.ConnectToGameDataBase(databaseURL);
                 this.doesGameDatabaseConnected = true;
+                Debug.WriteLine("Game Database Connection was SUCCESFULL!");
             } catch (GameDataBaseConnectionException exp) { 
-                Console.WriteLine("Cannot Connect to the database!");
+                Debug.WriteLine("Cannot Connect to the database!");
             }
         }
 
