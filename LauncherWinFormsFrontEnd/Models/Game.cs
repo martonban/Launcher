@@ -17,5 +17,7 @@ namespace LauncherWinFormsFrontEnd.Models {
         // Media Data
         public string? IconPath { get; set; }
         public string? ThumbnailPath { get; set; }
+
+        public string? CurrentFtpPath { get; set; }
     }
 }

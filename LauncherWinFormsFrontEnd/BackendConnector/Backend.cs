@@ -1,5 +1,6 @@
 ﻿using LauncherBackend.Controller;
 using LauncherBackend.Global;
+using LauncherBackend.Modells;
 using LauncherWinFormsFrontEnd.Models;
 using System;
 using System.Collections.Generic;
@@ -66,9 +67,25 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
         }
 
-
+        // Game Calls
         public Game GetGameById(int ID) {
             return GameConverter.GameDTOToGameConverter(gameController.GetGameByIDFromTheDatabase(ID)); 
+        }
+
+        public List<Game> GetAllGames() {
+            List<Game> games = new List<Game>();
+            List<GameDataDTO> gamesFromDatabase = gameController.GetAllGamesFromDatabase();
+            Game game;
+            foreach (GameDataDTO gameDTO in gamesFromDatabase) {
+                game = GameConverter.GameDTOToGameConverter(gameDTO);
+                games.Add(game);
+            }
+            return games;
+        }
+
+        public void InstallGame(Game game, string instalationPath) {
+            GameDataDTO dto = GameConverter.GameToGameDataDTOConerter(game);
+            gameController.InstallGame(dto, instalationPath);
         }
     }
 }
