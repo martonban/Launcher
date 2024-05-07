@@ -1,6 +1,7 @@
 ﻿using LauncherBackend.Controller;
 using LauncherBackend.Global;
 using LauncherBackend.Modells;
+using LauncherBackend.Models;
 using LauncherWinFormsFrontEnd.Models;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,11 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
         // This class will handle all of the project data
         public LauncherBackend.Controller.ProjectController projectController;
 
+
+
+        //--------------------------------------------------------------
+        //                         BACKEND INIT
+        //--------------------------------------------------------------
         public Backend() {
             // Activate the AppDataSaver subsystem
             try {
@@ -68,7 +74,9 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
         }
 
-        // Game Calls
+        //--------------------------------------------------------------
+        //                          GAME CALLS
+        //--------------------------------------------------------------
         public Game GetGameById(int ID) {
             return GameConverter.GameDTOToGameConverter(gameController.GetGameByIDFromTheDatabase(ID)); 
         }
@@ -105,6 +113,14 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             }
 
             return result;
+        }
+
+        //--------------------------------------------------------------
+        //                      APPLICATION CALLS
+        //--------------------------------------------------------------
+        public App GetAppByID(int id) {
+            AppDTO app = appController.GetApplicationByIDFromTheDatabase(id);
+            return AppConverter.AppDTOToAppCoverter(app);
         }
     }
 }
