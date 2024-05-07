@@ -38,6 +38,7 @@
             button4 = new Button();
             label10 = new Label();
             button3 = new Button();
+            button5 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -177,11 +178,22 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(156, 375);
+            button5.Name = "button5";
+            button5.Size = new Size(159, 29);
+            button5.TabIndex = 16;
+            button5.Text = "GetInstalledGame";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button5);
             Controls.Add(button3);
             Controls.Add(label10);
             Controls.Add(button4);
@@ -221,5 +233,6 @@
         private Button button4;
         private Label label10;
         private Button button3;
+        private Button button5;
     }
 }

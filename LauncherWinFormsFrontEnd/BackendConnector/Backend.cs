@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -86,6 +87,24 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
         public void InstallGame(Game game, string instalationPath) {
             GameDataDTO dto = GameConverter.GameToGameDataDTOConerter(game);
             gameController.InstallGame(dto, instalationPath);
+        }
+
+        public List<Game> GetAllInstalledGame() {
+            List<GameModel> gamesRecive = new List<GameModel>();
+            List<Game> result = new List<Game>();
+            try {
+                gamesRecive = AppDataController.GetAllGamesFromAppData();
+            } catch (Exception ex) {
+                Debug.WriteLine(ex.Message);
+            }
+
+            Game gameresult;
+            foreach (GameModel game in gamesRecive) {
+                gameresult = GameConverter.GameModelToGameConverter(game);
+                result.Add(gameresult);
+            }
+
+            return result;
         }
     }
 }

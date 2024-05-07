@@ -64,5 +64,23 @@ namespace LauncherWinFormsFrontEnd {
                 backend.InstallGame(selectedgame, label10.Text);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e) {
+            List<Game> games = backend.GetAllInstalledGame();
+            foreach (Game game in games) {
+                Debug.WriteLine(game.Id);
+                Debug.WriteLine(game.GameTitle);
+                Debug.WriteLine(game.Description);
+                Debug.WriteLine(game.Developer);
+                Debug.WriteLine(game.Publisher);
+                Debug.WriteLine(game.FTPFolderPath);
+                Debug.WriteLine(game.FileName);
+                Debug.WriteLine(game.IconPath);
+                Debug.WriteLine(game.ThumbnailPath);
+                Debug.WriteLine(game.CurrentFtpPath);
+                Debug.WriteLine(game.InsttallationPath);
+                Debug.WriteLine("------------------");
+            }
+        }
     }
 }

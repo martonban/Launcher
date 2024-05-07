@@ -2,6 +2,7 @@
 using LauncherBackend.Exceptions;
 using LauncherBackend.Modells;
 using LauncherBackend.Models;
+using System.IO;
 
 namespace LauncherBackend.Global {
     public static class AppDataController {
@@ -52,6 +53,16 @@ namespace LauncherBackend.Global {
                 Console.WriteLine(exp.Message);
                 return false;
             }
+        }
+
+        public static List<GameModel> GetAllGamesFromAppData() {
+            try {
+                CanWeUseAppDataSaver();
+            } catch (Exception) {
+                throw;
+            }
+
+            return appDataSaver.GetAllGamesFromAppData();
         }
 
 

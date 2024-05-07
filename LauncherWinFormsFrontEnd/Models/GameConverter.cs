@@ -36,5 +36,21 @@ namespace LauncherWinFormsFrontEnd.Models {
                 ThumbnailPath =  game.ThumbnailPath
             };
         }
+
+        public static Game GameModelToGameConverter(GameModel game) {
+            return new Game {
+                Id = game.GameDataDTO.Id,
+                GameTitle = game.GameDataDTO.GameTitle,
+                Description = game.GameDataDTO.Description,
+                Developer = game.GameDataDTO.Developer,
+                Publisher = game.GameDataDTO.Publisher,
+                FTPFolderPath = game.GameDataDTO.FTPFolderPath,
+                FileName = game.GameDataDTO.FileName,
+                IconPath = game.GameDataDTO.IconPath, 
+                ThumbnailPath = game.GameDataDTO.ThumbnailPath,
+                CurrentFtpPath = LauncherBackend.Global.FTP.GetRoot(),
+                InsttallationPath = game.InstallationPath
+            };
+        }
     }
 }
