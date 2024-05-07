@@ -122,5 +122,10 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             AppDTO app = appController.GetApplicationByIDFromTheDatabase(id);
             return AppConverter.AppDTOToAppCoverter(app);
         }
+
+        public void InstallApp(App app, string instalationPath) {
+            AppDTO dto = AppConverter.AppToAppDTOConverter(app);
+            appController.InstallApp(dto, instalationPath);
+        }
     }
 }

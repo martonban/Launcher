@@ -36,6 +36,9 @@
             label11 = new Label();
             button1 = new Button();
             textBox1 = new TextBox();
+            button2 = new Button();
+            label12 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -154,11 +157,43 @@
             textBox1.Size = new Size(159, 27);
             textBox1.TabIndex = 12;
             // 
+            // button2
+            // 
+            button2.Location = new Point(195, 68);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 29);
+            button2.TabIndex = 13;
+            button2.Text = "SelectPath";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(195, 38);
+            label12.Name = "label12";
+            label12.Size = new Size(58, 20);
+            label12.TabIndex = 14;
+            label12.Text = "label12";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(21, 115);
+            button3.Name = "button3";
+            button3.Size = new Size(310, 29);
+            button3.TabIndex = 15;
+            button3.Text = "InstallApps";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // AppTest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
+            Controls.Add(label12);
+            Controls.Add(button2);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(label11);
@@ -194,5 +229,8 @@
         private Label label11;
         private Button button1;
         private TextBox textBox1;
+        private Button button2;
+        private Label label12;
+        private Button button3;
     }
 }

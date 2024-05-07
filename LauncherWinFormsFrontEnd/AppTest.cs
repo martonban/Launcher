@@ -1,4 +1,5 @@
-﻿using LauncherWinFormsFrontEnd.BackendConnector;
+﻿using LauncherBackend.Controller;
+using LauncherWinFormsFrontEnd.BackendConnector;
 using LauncherWinFormsFrontEnd.Models;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,29 @@ namespace LauncherWinFormsFrontEnd {
             currentApp = backend.GetAppByID(id);
             label1.Text = currentApp.Id.ToString();
             label2.Text = currentApp.AppName;
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            string folderpath = "";
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            fbd.ShowNewFolderButton = false;
+            fbd.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            DialogResult dr = fbd.ShowDialog();
+
+            if (dr == DialogResult.OK) {
+                folderpath = fbd.SelectedPath;
+            }
+
+            if (folderpath != "") {
+                label12.Text = folderpath;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            if (label1.Text != "label1" && label12.Text != "label12") {
+                backend.InstallApp(currentApp, label12.Text);
+            }
         }
     }
 }
