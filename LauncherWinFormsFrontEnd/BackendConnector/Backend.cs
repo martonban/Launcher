@@ -157,5 +157,9 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             return result;
         }
 
+        //--------------------------------------------------------------
+        //                     PROJECTS CALLS
+        //--------------------------------------------------------------
+
     }
 }
