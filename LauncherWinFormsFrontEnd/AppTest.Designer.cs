@@ -39,6 +39,7 @@
             button2 = new Button();
             label12 = new Label();
             button3 = new Button();
+            button4 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -142,7 +143,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(21, 68);
+            button1.Location = new Point(12, 12);
             button1.Name = "button1";
             button1.Size = new Size(159, 29);
             button1.TabIndex = 11;
@@ -152,16 +153,16 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(21, 31);
+            textBox1.Location = new Point(177, 16);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(159, 27);
             textBox1.TabIndex = 12;
             // 
             // button2
             // 
-            button2.Location = new Point(195, 68);
+            button2.Location = new Point(12, 44);
             button2.Name = "button2";
-            button2.Size = new Size(136, 29);
+            button2.Size = new Size(159, 29);
             button2.TabIndex = 13;
             button2.Text = "SelectPath";
             button2.UseVisualStyleBackColor = true;
@@ -170,7 +171,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(195, 38);
+            label12.Location = new Point(176, 48);
             label12.Name = "label12";
             label12.Size = new Size(58, 20);
             label12.TabIndex = 14;
@@ -178,7 +179,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(21, 115);
+            button3.Location = new Point(12, 80);
             button3.Name = "button3";
             button3.Size = new Size(310, 29);
             button3.TabIndex = 15;
@@ -186,11 +187,22 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.Location = new Point(12, 266);
+            button4.Name = "button4";
+            button4.Size = new Size(222, 29);
+            button4.TabIndex = 16;
+            button4.Text = "GetAllGamesFromDatabase";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // AppTest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label12);
             Controls.Add(button2);
@@ -232,5 +244,6 @@
         private Button button2;
         private Label label12;
         private Button button3;
+        private Button button4;
     }
 }

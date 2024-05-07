@@ -127,5 +127,17 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             AppDTO dto = AppConverter.AppToAppDTOConverter(app);
             appController.InstallApp(dto, instalationPath);
         }
+
+        public List<App> GetAllApplication() {
+            List<App> apps = new List<App>();
+            List<AppDTO> appsFromDatabase = appController.GetAllApplicationsFromDatabase();
+            App app;
+            foreach (AppDTO appDTO in appsFromDatabase) {
+                app = AppConverter.AppDTOToAppCoverter(appDTO);
+                apps.Add(app);
+            }
+            return apps;
+        }
+
     }
 }
