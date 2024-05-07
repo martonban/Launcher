@@ -40,6 +40,7 @@
             label12 = new Label();
             button3 = new Button();
             button4 = new Button();
+            button5 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -197,11 +198,22 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(12, 300);
+            button5.Name = "button5";
+            button5.Size = new Size(222, 29);
+            button5.TabIndex = 17;
+            button5.Text = "GetAllInstalledApps";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // AppTest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label12);
@@ -245,5 +257,6 @@
         private Label label12;
         private Button button3;
         private Button button4;
+        private Button button5;
     }
 }

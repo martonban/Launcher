@@ -139,5 +139,23 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             return apps;
         }
 
+        public List<App> GetAllInstalledApplications() {
+            List<AppModel> appsRecive = new List<AppModel>();
+            List<App> result = new List<App>();
+            try {
+                appsRecive = AppDataController.GetAllApplicationsFromAppData();
+            } catch (Exception ex) {
+                Debug.WriteLine(ex.Message);
+            }
+
+            App appresult;
+            foreach (AppModel app in appsRecive) {
+                appresult = AppConverter.AppModelToAppConverter(app);
+                result.Add(appresult);
+            }
+
+            return result;
+        }
+
     }
 }

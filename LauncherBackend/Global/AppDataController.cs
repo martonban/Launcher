@@ -65,6 +65,16 @@ namespace LauncherBackend.Global {
             return appDataSaver.GetAllGamesFromAppData();
         }
 
+        public static List<AppModel> GetAllApplicationsFromAppData() {
+            try {
+                CanWeUseAppDataSaver();
+            } catch (Exception) {
+                throw;
+            }
+
+            return appDataSaver.GetAllApplicationFromAppData();
+        }
+
 
         //---------------------------
         // Helper Funcions for Games

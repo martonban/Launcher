@@ -71,5 +71,22 @@ namespace LauncherWinFormsFrontEnd {
                 Debug.WriteLine("---------------------------------");
             }
         }
+
+        private void button5_Click(object sender, EventArgs e) {
+            List<App> apps = backend.GetAllInstalledApplications();
+            foreach (App app in apps) {
+                Debug.WriteLine(app.Id);
+                Debug.WriteLine(app.Description);
+                Debug.WriteLine(app.Suite);
+                Debug.WriteLine(app.Version);
+                Debug.WriteLine(app.FTPFolderPath);
+                Debug.WriteLine(app.FileName);
+                Debug.WriteLine(app.IconPath);
+                Debug.WriteLine(app.CoverPath);
+                Debug.WriteLine(app.CurrentFTPPath);
+                Debug.WriteLine(app.InstallationPath);
+                Debug.WriteLine("---------------------------------");
+            }
+        }
     }
 }
