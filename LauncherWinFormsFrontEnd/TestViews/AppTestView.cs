@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LauncherWinFormsFrontEnd {
-    public partial class AppTest : Form {
+    public partial class AppTestView : Form {
 
         App currentApp;
         Backend backend = new Backend();
 
-        public AppTest() {
+        public AppTestView() {
             InitializeComponent();
         }
 

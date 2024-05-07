@@ -1,5 +1,5 @@
 ﻿namespace LauncherWinFormsFrontEnd {
-    partial class Form1 {
+    partial class GameTestView {
         /// <summary>
         ///  Required designer variable.
         /// </summary>

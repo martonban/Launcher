@@ -1,5 +1,5 @@
 ﻿namespace LauncherWinFormsFrontEnd {
-    partial class AppTest {
+    partial class AppTestView {
         /// <summary>
         /// Required designer variable.
         /// </summary>

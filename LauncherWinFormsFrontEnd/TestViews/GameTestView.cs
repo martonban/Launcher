@@ -3,12 +3,12 @@ using LauncherWinFormsFrontEnd.Models;
 using System.Diagnostics;
 
 namespace LauncherWinFormsFrontEnd {
-    public partial class Form1 : Form {
+    public partial class GameTestView : Form {
 
         BackendConnector.Backend backend = new BackendConnector.Backend();
         public Game selectedgame;
 
-        public Form1() {
+        public GameTestView() {
             InitializeComponent();
         }
 
