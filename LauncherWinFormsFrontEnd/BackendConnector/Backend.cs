@@ -72,6 +72,8 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
             // App Database Connection
             appController = new AppController();
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
+
+            projectController = new ProjectController();
         }
 
         //--------------------------------------------------------------
@@ -160,6 +162,22 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
         //--------------------------------------------------------------
         //                     PROJECTS CALLS
         //--------------------------------------------------------------
+        public void CreateBagProject(BagProject project) {
+            BagProjectDTO newProject = ProjectConverter.BagProjectToBagProjectDTO(project);
+            projectController.BagProjectWizard(newProject);
+        }
 
+        public List<BagProject> GetAllBagProjects() {
+            List<BagProject> result = new List<BagProject>();
+            List<BagProjectDTO> recived = AppDataController.GetAllBagProjects();
+
+            BagProject temp;
+            foreach (BagProjectDTO project in recived) {
+                temp = ProjectConverter.BagProjectDTOToBagProject(project);
+                result.Add(temp);
+            }
+
+            return result;
+        }
     }
 }

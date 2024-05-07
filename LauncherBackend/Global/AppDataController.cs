@@ -75,6 +75,16 @@ namespace LauncherBackend.Global {
             return appDataSaver.GetAllApplicationFromAppData();
         }
 
+        public static List<BagProjectDTO> GetAllBagProjects() {
+            try {
+                CanWeUseAppDataSaver();
+            } catch (Exception) {
+                throw;
+            }
+
+            return appDataSaver.GetBagProjectsFromAppData();
+        }
+
 
         //---------------------------
         // Helper Funcions for Games

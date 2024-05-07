@@ -9,6 +9,6 @@ namespace LauncherBackend.Models {
     public class BagProjectDTO {
         public string? ProjectTitle { get; set; }
         public string? InstallationPath { get; set; }
-        public string? Suit { get; set; }
+        public string? Suite { get; set; }
     }
 }
