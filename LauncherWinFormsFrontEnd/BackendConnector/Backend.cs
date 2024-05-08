@@ -35,6 +35,8 @@ namespace LauncherWinFormsFrontEnd.BackendConnector {
         // This class will handle all of the project data
         public LauncherBackend.Controller.ProjectController projectController;
 
+        // Signal System 
+        //public LauncherBackend.Global.SignalSystemServiceBackend signalSystemBackend;
 
 
         //--------------------------------------------------------------

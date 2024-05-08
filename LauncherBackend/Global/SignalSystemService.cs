@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LauncherBackend.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace LauncherBackend.Global {
     }
 
     public static class SignalSystem {
+
+        public static event EventHandler ErrorThrowned;
 
         private static Exception currentError = null;
         private static ErrorTypes type;

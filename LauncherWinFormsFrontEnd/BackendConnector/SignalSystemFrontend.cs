@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LauncherBackend.Global;
+using LauncherWinFormsFrontEnd.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,13 @@ using System.Threading.Tasks;
 //-----------------------------------------------------
 
 namespace LauncherWinFormsFrontEnd.BackendConnector {
-    public class SignalSystem {
+    public class SignalSystemFrontend {
+        private Backend backend = null;
+        //private SignalSystemServiceBackend backendService;
+        
+        public SignalSystemFrontend(Backend backend) {
+            this.backend = backend;
+            //this.backendService = backend.signalSystemBackend;
+        }
     }
 }

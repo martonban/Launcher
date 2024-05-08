@@ -39,6 +39,6 @@
 
         #endregion
 
-        private MainMenuUserControls.Test test1;
+        
     }
 }
