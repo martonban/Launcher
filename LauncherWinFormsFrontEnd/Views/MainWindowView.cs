@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LauncherWinFormsFrontEnd.ModelViews;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace LauncherWinFormsFrontEnd.Views {
     public partial class MainWindowView : Form {
         public MainWindowView() {
             InitializeComponent();
+        }
+
+        private void MainWindowView_Load(object sender, EventArgs e) {
+            MainWindowViewModel viewModel = new MainWindowViewModel();
         }
     }
 }

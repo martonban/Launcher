@@ -1,4 +1,6 @@
+using LauncherWinFormsFrontEnd.ModelViews;
 using LauncherWinFormsFrontEnd.TestViews;
+using LauncherWinFormsFrontEnd.Views;
 
 namespace LauncherWinFormsFrontEnd {
     internal static class Program {
@@ -10,7 +12,7 @@ namespace LauncherWinFormsFrontEnd {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ProjectTestView());
+            Application.Run(new MainWindowView());
 
         }
     }

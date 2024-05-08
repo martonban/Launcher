@@ -12,4 +12,8 @@
     <ProjectReference Include="..\LauncherBackend\LauncherBackend.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\ContentUserControls\" />
+  </ItemGroup>
+
 </Project>
