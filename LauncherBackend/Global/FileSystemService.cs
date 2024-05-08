@@ -4,6 +4,7 @@ using LauncherBackend.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -32,9 +33,10 @@ namespace LauncherBackend.Global
             if (CanInstall(game, installationPath)) {
                 try {
                     System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + game.FTPFolderPath + game.FileName, installationPath + "/" + game.GameTitle);
-                } catch (IOException) {
-                    Console.WriteLine("Error FileSystemService: Game not able to install! \n");
-                    Console.WriteLine("Probably invalid Path");
+                } catch (IOException exp) {
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorInput);
+                    Debug.WriteLine("Error FileSystemService: Game not able to install! \n");
+                    Debug.WriteLine("Probably invalid Path");
                 }
             } else {
                 throw new CannotInstallGameExeption("You can't install the game. \n" +
@@ -47,9 +49,10 @@ namespace LauncherBackend.Global
             if (CanInstall(app, installationPath)) {
                 try {
                     System.IO.Compression.ZipFile.ExtractToDirectory(ftpPath + app.FTPFolderPath + app.FileName, installationPath + "/" + app.AppName);
-                } catch (IOException) {
-                    Console.WriteLine("Error FileSystemService: App not able to install! \n");
-                    Console.WriteLine("Probably invalid Path");
+                } catch (IOException exp) {
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorInput);
+                    Debug.WriteLine("Error FileSystemService: App not able to install! \n");
+                    Debug.WriteLine("Probably invalid Path");
                 }
             } else {
                 throw new CannotInstallGameExeption("You can't install the app. \n" +
@@ -62,9 +65,10 @@ namespace LauncherBackend.Global
             if (IsPathExist(project.InstallationPath)) {
                 try {
                     System.IO.Compression.ZipFile.ExtractToDirectory(Assets.Files.BagTemplate, project.InstallationPath + "/" + project.ProjectTitle);
-                } catch (IOException) {
-                    Console.WriteLine("Error FileSystemService: Project not able to install! \n");
-                    Console.WriteLine("Probably invalid Path");
+                } catch (IOException exp) {
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorInput);
+                    Debug.WriteLine("Error FileSystemService: Project not able to install! \n");
+                    Debug.WriteLine("Probably invalid Path");
                 }
             } else {
                 throw new CannotInstallGameExeption("You can't install the app. \n" +

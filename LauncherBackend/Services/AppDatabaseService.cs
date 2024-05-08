@@ -1,4 +1,5 @@
 ﻿using LauncherBackend.Exceptions;
+using LauncherBackend.Global;
 using LauncherBackend.Models;
 using LauncherBackend.Repository;
 
@@ -14,7 +15,7 @@ namespace LauncherBackend.Services {
             try {
                 return applicationDatabaseRepository.GetApplicationByIDFromTheDatabase(id);
             } catch (ApplicationDataBaseConnectionException exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
                 return new AppDTO();
             }
         }
@@ -23,7 +24,7 @@ namespace LauncherBackend.Services {
             try {
                 applicationDatabaseRepository.InsertApp(app);
             } catch (ApplicationDataBaseConnectionException exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
         }
 
@@ -31,7 +32,7 @@ namespace LauncherBackend.Services {
             try {
                 return applicationDatabaseRepository.GetAllApps();
             } catch (ApplicationDataBaseConnectionException exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
             return new List<AppDTO>();
         }

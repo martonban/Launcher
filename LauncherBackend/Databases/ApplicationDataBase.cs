@@ -1,12 +1,8 @@
 ﻿using LauncherBackend.Exceptions;
-using LauncherBackend.Modells;
+using LauncherBackend.Global;
 using LauncherBackend.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace LauncherBackend.Databases {
     public class ApplicationDataBase {
@@ -18,10 +14,9 @@ namespace LauncherBackend.Databases {
             this.databaseFullPath = databasePath + "/application_libary.json";
             if (!CheckFileIsExist(this.databaseFullPath)) {
                 throw new ApplicationDataBaseConnectionException(
-                    "Error: Application Databas is not exists!"
+                    "Error: Cannot connect to the application database!"
                 );
             }
-            Console.WriteLine("Works!");
         }
 
         public void InsertApplication(AppDTO appDTO) {
@@ -62,7 +57,8 @@ namespace LauncherBackend.Databases {
             try {
                 applicationDataBase = JsonSerializer.Deserialize<List<AppDTO>>(serializationJson);
             } catch (JsonException exp) {
-                Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
+                Debug.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
             }
         }
 

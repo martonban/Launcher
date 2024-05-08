@@ -19,8 +19,8 @@ namespace LauncherBackend.Controller {
             try {
                 BagWizard(project);
                 wizardFlag = true;
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+            } catch (Exception exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorWarning);
                 wizardFlag = false;
             }
 

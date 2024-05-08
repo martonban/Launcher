@@ -1,4 +1,5 @@
 ﻿using LauncherBackend.Exceptions;
+using LauncherBackend.Global;
 using LauncherBackend.Modells;
 using LauncherBackend.Repository;
 using System;
@@ -20,7 +21,7 @@ namespace LauncherBackend.Services
             try {
                 return gameDatabaseRepository.GetGameByIDFromTheDatabase(id);
             } catch (GameDataBaseConnectionException exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
                 return new GameDataDTO();
             }
         }
@@ -28,8 +29,8 @@ namespace LauncherBackend.Services
         public void InsertGame(GameDataDTO game) {
             try {
                 gameDatabaseRepository.InsertGame(game);
-            } catch (GameDataBaseConnectionException exp) { 
-                Console.WriteLine(exp.Message);
+            } catch (GameDataBaseConnectionException exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
         }
 
@@ -37,7 +38,7 @@ namespace LauncherBackend.Services
             try {
                 return gameDatabaseRepository.GetAllGames();
             } catch (GameDataBaseConnectionException exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
             return new List<GameDataDTO>();
         }

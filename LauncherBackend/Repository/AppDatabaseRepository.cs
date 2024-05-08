@@ -1,5 +1,6 @@
 ﻿using LauncherBackend.Databases;
 using LauncherBackend.Exceptions;
+using LauncherBackend.Global;
 using LauncherBackend.Models;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,8 @@ namespace LauncherBackend.Repository {
                 applicationDataBase.ConnectToApplicationDataBase(databaseURL);
                 this.doesApplicationDatabaseConnected = true;
                 Debug.WriteLine("App Database Connection was SUCCESFULL!");
-            } catch (GameDataBaseConnectionException exp) {
-                Debug.WriteLine("Error: Cannot connect to the application database!");
+            } catch (ApplicationDataBaseConnectionException exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
         }
 
@@ -32,7 +33,7 @@ namespace LauncherBackend.Repository {
                 try {
                     return applicationDataBase.GetAppByID(id);
                 } catch (AppIsNotExistedInTheDatabaseException exp) {
-                    Console.WriteLine(exp.Message);
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorExistence);
                 }
             } else {
                 throw new ApplicationDataBaseConnectionException("Error: Application database in not connected, please connect to the database! Use: ApplicationController::ConnectToApplicationDataBase(string url) function!");
@@ -45,7 +46,7 @@ namespace LauncherBackend.Repository {
                 try {
                     applicationDataBase.InsertApplication(app);
                 } catch (AppIsExistsInTheDataBaseWithThisIDExeption exp) {
-                    Console.WriteLine(exp.Message);
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorExistence);
                 }
             } else {
                 throw new ApplicationDataBaseConnectionException("Error: Application database in not connected, please connect to the database! Use: ApplicationController::ConnectToApplicationDataBase(string url) function!");

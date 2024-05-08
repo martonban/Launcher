@@ -4,6 +4,7 @@ using LauncherBackend.Models;
 using LauncherBackend.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,13 +40,13 @@ namespace LauncherBackend.Controller {
             // Install the app
             try {
                 FileSystemService.InstallApp(app, installationPath);
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+            } catch (Exception exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorInput);
             }
 
             //Administrate the game has been installed
             if (AppDataController.AppInstalled(app, installationPath)) {
-                Console.WriteLine("Game has been istalled and saved!");
+                Debug.WriteLine("Game has been istalled and saved!");
             }
         }
     }

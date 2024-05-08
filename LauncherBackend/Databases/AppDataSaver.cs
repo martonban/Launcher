@@ -3,6 +3,7 @@ using LauncherBackend.Exceptions;
 using LauncherBackend.Global;
 using LauncherBackend.Modells;
 using LauncherBackend.Models;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace LauncherBackend.Databases {
@@ -179,7 +180,8 @@ namespace LauncherBackend.Databases {
             try {
                 games = JsonSerializer.Deserialize<List<GameModel>>(serializationJson);
             } catch (JsonException exp) {
-                Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
+                Debug.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
             }
         }
 
@@ -203,7 +205,8 @@ namespace LauncherBackend.Databases {
             try {
                 apps = JsonSerializer.Deserialize<List<AppModel>>(serializationJson);
             } catch (JsonException exp) {
-                Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
+                Debug.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
             }
         }
 
@@ -227,7 +230,8 @@ namespace LauncherBackend.Databases {
             try {
                 bagprojects = JsonSerializer.Deserialize<List<BagProjectDTO>>(serializationJson);
             } catch (JsonException exp) {
-                Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
+                Debug.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
             }
         }
     }

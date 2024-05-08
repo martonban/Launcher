@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Text.Json;
 using LauncherBackend.Exceptions;
+using LauncherBackend.Global;
 using LauncherBackend.Modells;
 
 // --------------------------------------------------
@@ -65,7 +67,8 @@ namespace LauncherBackend.Database
             try {
                 gameDataBase = JsonSerializer.Deserialize<List<GameDataDTO>>(serializationJson);
             } catch (JsonException exp) {
-                Console.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
+                Debug.WriteLine("ERROR!!!!! DEV NOTE: A Json fájlban nincsen: '[]'. Pótold és jó lesz!");
             }  
         }
 

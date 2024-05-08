@@ -20,8 +20,8 @@ namespace LauncherBackend.Global {
 
             try {
                 CanWeUseAppDataSaver();
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+            } catch (Exception exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
         }
 
@@ -29,8 +29,8 @@ namespace LauncherBackend.Global {
             try {
                 GameInstalledSaved(game, path);
                 return true;
-            } catch (Exception exp) { 
-                Console.WriteLine(exp.Message);
+            } catch (Exception exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorWarning);
                 return false;
             }
         }
@@ -40,7 +40,7 @@ namespace LauncherBackend.Global {
                 AppInstalledSaved(app, path);
                 return true;
             } catch (Exception exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorWarning);
                 return false;
             }
         }
@@ -50,7 +50,7 @@ namespace LauncherBackend.Global {
                 BagProjectAddedSaved(project);
                 return true;
             } catch (Exception exp) {
-                Console.WriteLine(exp.Message);
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorWarning);
                 return false;
             }
         }
