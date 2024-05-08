@@ -68,6 +68,8 @@ namespace LauncherBackend
             AppController appController = new AppController();
             appController.ConnectToApplicationDataBase("C:/Server/Databases");
 
+            GameDataDTO game = gameController.GetGameByIDFromTheDatabase(333);
+
         }
     }
 }

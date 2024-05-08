@@ -1,5 +1,6 @@
 ﻿using LauncherBackend.Database;
 using LauncherBackend.Exceptions;
+using LauncherBackend.Global;
 using LauncherBackend.Modells;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,8 @@ namespace LauncherBackend.Repository
                 gameDataBase.ConnectToGameDataBase(databaseURL);
                 this.doesGameDatabaseConnected = true;
                 Debug.WriteLine("Game Database Connection was SUCCESFULL!");
-            } catch (GameDataBaseConnectionException exp) { 
-                Debug.WriteLine("Cannot Connect to the database!");
+            } catch (GameDataBaseConnectionException exp) {
+                SignalSystem.ErrorHappend(exp, SignalSystem.ErrorFatal);
             }
         }
 
@@ -42,7 +43,7 @@ namespace LauncherBackend.Repository
                 try {
                     return gameDataBase.GetGameByID(id);
                 } catch (GameIsNotExistedInTheDatabaseException exp) {
-                    Console.WriteLine(exp.Message);
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorExistence);
                 } 
             }
             else {
@@ -56,7 +57,7 @@ namespace LauncherBackend.Repository
                 try {
                     gameDataBase.InsertGame(game);
                 } catch (GameIsExistsInTheDataBaseWithThisIDExeption exp) {
-                    Console.WriteLine(exp.Message);
+                    SignalSystem.ErrorHappend(exp, SignalSystem.ErrorExistence);
                 }  
             } else {
                 throw new GameDataBaseConnectionException("Database in not connected, please connect to the database! Use: GameController::ConnectToGameDataBase(string url) function!");
