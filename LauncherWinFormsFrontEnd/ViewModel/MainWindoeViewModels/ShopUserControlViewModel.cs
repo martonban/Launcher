@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LauncherWinFormsFrontEnd.ModelViews.MainWindoeViewModels {
-    internal class ShopUserControlModelView {
+    internal class ShopUserControlViewModel {
     }
 }

@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LauncherWinFormsFrontEnd.ModelViews {
-    internal class AppsUserControlViewModel {
+namespace LauncherWinFormsFrontEnd.ModelViews.MainWindoeViewModels
+{
+    internal class AppsUserControlViewModel
+    {
     }
 }
