@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace LauncherWinFormsFrontEnd.ModelViews {
     
     public class MainWindowViewModel {
-        public UserControl currentUserControl;
+        public UserControl? currentUserControl;
 
         public Backend backend = new Backend();
 
-
+        public MainWindowViewModel() { }
 
     }
 }

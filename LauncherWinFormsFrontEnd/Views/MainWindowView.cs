@@ -1,4 +1,7 @@
-﻿using LauncherWinFormsFrontEnd.ModelViews;
+﻿using LauncherBackend.Controller;
+using LauncherWinFormsFrontEnd.BackendConnector;
+using LauncherWinFormsFrontEnd.ModelViews;
+using LauncherWinFormsFrontEnd.Views.MainWindowViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,15 +15,49 @@ using System.Windows.Forms;
 namespace LauncherWinFormsFrontEnd.Views {
     public partial class MainWindowView : Form {
 
+        public Backend backend = new Backend();
 
-        
+        public UserControl currentUserControl;
+
+        public ShopUserControlView shopUserControl;
+        public LibaryUserControlView libaryUserControl;
+        public AppsUserControlView appsUserControl;
+        public ProjectUserControlView projectUserControl;
+
+
         public MainWindowView() {
             InitializeComponent();
         }
 
         private void MainWindowView_Load(object sender, EventArgs e) {
-            MainWindowViewModel viewModel = new MainWindowViewModel();
-            
+            shopUserControl = new ShopUserControlView();
+            libaryUserControl = new LibaryUserControlView();
+            appsUserControl = new AppsUserControlView();
+            projectUserControl = new ProjectUserControlView();
+
+            UserControlContextSwich(shopUserControl);
+        }
+
+        private void UserControlContextSwich(UserControl userControl) {
+            userControl.Dock = DockStyle.Right;
+            userControl.Show();
+            this.Controls.Add(userControl);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            UserControlContextSwich(shopUserControl);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            UserControlContextSwich(libaryUserControl);
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            UserControlContextSwich(appsUserControl);
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            UserControlContextSwich(projectUserControl);
         }
     }
 }

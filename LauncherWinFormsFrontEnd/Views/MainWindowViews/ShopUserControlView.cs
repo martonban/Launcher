@@ -13,5 +13,9 @@ namespace LauncherWinFormsFrontEnd.Views.MainWindowViews {
         public ShopUserControlView() {
             InitializeComponent();
         }
+
+        private void ShopUserControlView_Load(object sender, EventArgs e) {
+
+        }
     }
 }

@@ -111,6 +111,7 @@
             linkLabel4.Text = "Projects";
             linkLabel4.TextAlign = ContentAlignment.MiddleLeft;
             linkLabel4.VisitedLinkColor = Color.White;
+            linkLabel4.LinkClicked += linkLabel4_LinkClicked;
             // 
             // linkLabel3
             // 
@@ -128,6 +129,7 @@
             linkLabel3.Text = "Apps";
             linkLabel3.TextAlign = ContentAlignment.MiddleLeft;
             linkLabel3.VisitedLinkColor = Color.White;
+            linkLabel3.LinkClicked += linkLabel3_LinkClicked;
             // 
             // label2
             // 
@@ -160,6 +162,7 @@
             linkLabel2.Text = "Libary";
             linkLabel2.TextAlign = ContentAlignment.MiddleLeft;
             linkLabel2.VisitedLinkColor = Color.White;
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // pictureBox1
             // 
@@ -203,6 +206,7 @@
             linkLabel1.Text = "Shop";
             linkLabel1.TextAlign = ContentAlignment.MiddleLeft;
             linkLabel1.VisitedLinkColor = Color.White;
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // pictureBox3
             // 
