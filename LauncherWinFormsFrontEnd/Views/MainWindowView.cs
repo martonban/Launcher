@@ -11,12 +11,16 @@ using System.Windows.Forms;
 
 namespace LauncherWinFormsFrontEnd.Views {
     public partial class MainWindowView : Form {
+
+
+        
         public MainWindowView() {
             InitializeComponent();
         }
 
         private void MainWindowView_Load(object sender, EventArgs e) {
             MainWindowViewModel viewModel = new MainWindowViewModel();
+            
         }
     }
 }
