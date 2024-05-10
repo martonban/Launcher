@@ -9,8 +9,6 @@ namespace LauncherWinFormsFrontEnd.ModelViews {
     public class MainWindowViewModel {
         // Context Swich System 
         private UserControl currentUser;
-        public static string fasz = "fasz";
-        // 
-        //private 
+        
     }
 }
