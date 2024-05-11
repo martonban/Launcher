@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LauncherWinFormsFrontEnd.Views.ContentUserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,16 @@ namespace LauncherWinFormsFrontEnd.Views.MainWindowViews {
     public partial class LibaryUserControlView : UserControl {
         public LibaryUserControlView() {
             InitializeComponent();
+        }
+
+        private void LibaryUserControlView_Load(object sender, EventArgs e) {
+            flowLayoutPanel2.Controls.Clear();
+            flowLayoutPanel2.BorderStyle = BorderStyle.None;
+            List<UserControl> tiles = new List<UserControl>();
+            for (int i = 0; i < 20; i++) {
+                tiles.Add(new LibaryGameTile());
+                flowLayoutPanel2.Controls.Add(tiles[i]);
+            }
         }
     }
 }
