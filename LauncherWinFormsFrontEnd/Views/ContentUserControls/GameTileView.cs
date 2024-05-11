@@ -1,13 +1,5 @@
 ﻿using LauncherWinFormsFrontEnd.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using LauncherWinFormsFrontEnd.Views.MainWindowViews;
 
 namespace LauncherWinFormsFrontEnd.Views.ContentUserControls {
     public partial class GameTileView : UserControl {
@@ -23,6 +15,11 @@ namespace LauncherWinFormsFrontEnd.Views.ContentUserControls {
             logo.Image = Image.FromFile(game.CurrentFtpPath + game.IconPath);
             title.Text = game.GameTitle;
             description.Text = game.Description;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            UserControl userControl = new GameUserControlView(game);
+           
         }
     }
 }

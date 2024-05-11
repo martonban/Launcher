@@ -150,6 +150,7 @@
             Controls.Add(pictureBox1);
             Name = "GameUserControlView";
             Size = new Size(1208, 865);
+            Load += GameUserControlView_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

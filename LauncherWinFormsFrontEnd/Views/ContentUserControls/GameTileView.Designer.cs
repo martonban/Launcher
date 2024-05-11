@@ -47,7 +47,7 @@
             description.Font = new Font("Rubik", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 238);
             description.ForeColor = Color.White;
             description.Location = new Point(183, 65);
-            description.MaximumSize = new Size(600, 0);
+            description.MaximumSize = new Size(700, 0);
             description.Name = "description";
             description.Size = new Size(226, 24);
             description.TabIndex = 1;
@@ -69,13 +69,14 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Rubik", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 238);
             linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(765, 142);
+            linkLabel1.Location = new Point(862, 142);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(100, 20);
             linkLabel1.TabIndex = 3;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Check out...";
             linkLabel1.VisitedLinkColor = Color.White;
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // GameTileView
             // 
@@ -86,8 +87,9 @@
             Controls.Add(logo);
             Controls.Add(description);
             Controls.Add(title);
+            Margin = new Padding(100, 3, 3, 6);
             Name = "GameTileView";
-            Size = new Size(868, 177);
+            Size = new Size(980, 177);
             Load += GameTileView_Load;
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ResumeLayout(false);

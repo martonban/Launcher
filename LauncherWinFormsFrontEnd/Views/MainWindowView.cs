@@ -1,5 +1,6 @@
 ﻿using LauncherBackend.Controller;
 using LauncherWinFormsFrontEnd.BackendConnector;
+using LauncherWinFormsFrontEnd.Models;
 using LauncherWinFormsFrontEnd.ModelViews;
 using LauncherWinFormsFrontEnd.Views.MainWindowViews;
 using System;
@@ -17,14 +18,11 @@ namespace LauncherWinFormsFrontEnd.Views {
 
         public static Backend backend = new Backend();
 
-        public UserControl currentUserControl;
-
         public ShopUserControlView shopUserControl;
         public LibaryUserControlView libaryUserControl;
         public AppsUserControlView appsUserControl;
         public ProjectUserControlView projectUserControl;
         public GameUserControlView gameUserControlView;
-
 
         public MainWindowView() {
             InitializeComponent();
@@ -35,15 +33,14 @@ namespace LauncherWinFormsFrontEnd.Views {
             libaryUserControl = new LibaryUserControlView();
             appsUserControl = new AppsUserControlView();
             projectUserControl = new ProjectUserControlView();
-            gameUserControlView = new GameUserControlView();
-
-            UserControlContextSwich(gameUserControlView);
         }
 
-        private void UserControlContextSwich(UserControl userControl) {
+
+
+        public static void UserControlContextSwich(UserControl userControl) {
             userControl.Dock = DockStyle.Right;
             userControl.Show();
-            this.Controls.Add(userControl);
+            control.Add(userControl);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
