@@ -23,6 +23,7 @@ namespace LauncherWinFormsFrontEnd.Views {
         public LibaryUserControlView libaryUserControl;
         public AppsUserControlView appsUserControl;
         public ProjectUserControlView projectUserControl;
+        public GameUserControlView gameUserControlView;
 
 
         public MainWindowView() {
@@ -34,8 +35,9 @@ namespace LauncherWinFormsFrontEnd.Views {
             libaryUserControl = new LibaryUserControlView();
             appsUserControl = new AppsUserControlView();
             projectUserControl = new ProjectUserControlView();
+            gameUserControlView = new GameUserControlView();
 
-            UserControlContextSwich(shopUserControl);
+            UserControlContextSwich(gameUserControlView);
         }
 
         private void UserControlContextSwich(UserControl userControl) {
