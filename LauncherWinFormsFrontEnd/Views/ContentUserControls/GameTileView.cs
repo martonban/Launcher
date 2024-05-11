@@ -19,7 +19,6 @@ namespace LauncherWinFormsFrontEnd.Views.ContentUserControls {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             UserControl userControl = new GameUserControlView(game);
-           
         }
     }
 }
