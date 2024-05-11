@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace LauncherWinFormsFrontEnd.Views {
     public partial class MainWindowView : Form {
 
-        public Backend backend = new Backend();
+        public static Backend backend = new Backend();
 
         public UserControl currentUserControl;
 

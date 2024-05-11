@@ -23,44 +23,45 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label1 = new Label();
-            label2 = new Label();
-            pictureBox1 = new PictureBox();
+            title = new Label();
+            description = new Label();
+            logo = new PictureBox();
             linkLabel1 = new LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // title
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Rubik", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(183, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(63, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Test";
+            title.AutoSize = true;
+            title.Font = new Font("Rubik", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            title.ForeColor = Color.White;
+            title.Location = new Point(183, 22);
+            title.Name = "title";
+            title.Size = new Size(63, 28);
+            title.TabIndex = 0;
+            title.Text = "Test";
             // 
-            // label2
+            // description
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Rubik", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(183, 65);
-            label2.Name = "label2";
-            label2.Size = new Size(226, 24);
-            label2.TabIndex = 1;
-            label2.Text = "lorem ipsum - test text";
+            description.AutoSize = true;
+            description.Font = new Font("Rubik", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            description.ForeColor = Color.White;
+            description.Location = new Point(183, 65);
+            description.MaximumSize = new Size(600, 0);
+            description.Name = "description";
+            description.Size = new Size(226, 24);
+            description.TabIndex = 1;
+            description.Text = "lorem ipsum - test text";
             // 
-            // pictureBox1
+            // logo
             // 
-            pictureBox1.Image = Properties.Resources.icon;
-            pictureBox1.Location = new Point(17, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(146, 140);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            logo.Image = Properties.Resources.icon;
+            logo.Location = new Point(17, 22);
+            logo.Name = "logo";
+            logo.Size = new Size(146, 140);
+            logo.SizeMode = PictureBoxSizeMode.Zoom;
+            logo.TabIndex = 2;
+            logo.TabStop = false;
             // 
             // linkLabel1
             // 
@@ -82,22 +83,22 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
             Controls.Add(linkLabel1);
-            Controls.Add(pictureBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(logo);
+            Controls.Add(description);
+            Controls.Add(title);
             Name = "GameTileView";
             Size = new Size(868, 177);
             Load += GameTileView_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private PictureBox pictureBox1;
+        private Label title;
+        private Label description;
+        private PictureBox logo;
         private LinkLabel linkLabel1;
     }
 }
