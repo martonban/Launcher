@@ -18,7 +18,7 @@ namespace LauncherWinFormsFrontEnd.Views.ContentUserControls {
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            InstallGameView installGameView = new InstallGameView();
+            InstallGameView installGameView = new InstallGameView(game);
             installGameView.Show();
         }
     }
