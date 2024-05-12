@@ -58,6 +58,7 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(1208, 820);
             flowLayoutPanel2.TabIndex = 2;
+            flowLayoutPanel2.Paint += flowLayoutPanel2_Paint;
             // 
             // LibaryUserControlView
             // 

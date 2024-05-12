@@ -1,4 +1,5 @@
-﻿using LauncherWinFormsFrontEnd.Views.ContentUserControls;
+﻿using LauncherWinFormsFrontEnd.Models;
+using LauncherWinFormsFrontEnd.Views.ContentUserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,20 @@ namespace LauncherWinFormsFrontEnd.Views.MainWindowViews {
         private void LibaryUserControlView_Load(object sender, EventArgs e) {
             flowLayoutPanel2.Controls.Clear();
             flowLayoutPanel2.BorderStyle = BorderStyle.None;
+            List<Game> games = MainWindowView.backend.GetAllInstalledGame();
             List<UserControl> tiles = new List<UserControl>();
-            for (int i = 0; i < 20; i++) {
-                tiles.Add(new LibaryGameTile());
-                flowLayoutPanel2.Controls.Add(tiles[i]);
+
+            foreach (Game game in games) {
+                tiles.Add(new LibaryGameTile(game));
             }
+
+            foreach (LibaryGameTile tile in tiles) {
+                flowLayoutPanel2.Controls.Add(tile);
+            }
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e) {
+
         }
     }
 }

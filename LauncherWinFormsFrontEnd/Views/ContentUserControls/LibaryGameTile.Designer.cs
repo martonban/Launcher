@@ -72,6 +72,7 @@
             Controls.Add(pictureBox1);
             Name = "LibaryGameTile";
             Size = new Size(313, 269);
+            Load += LibaryGameTile_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
