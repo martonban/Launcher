@@ -46,7 +46,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(14, 137);
+            textBox1.Location = new Point(18, 137);
             textBox1.Margin = new Padding(5, 4, 5, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(522, 35);
@@ -103,7 +103,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(14, 105);
+            label3.Location = new Point(18, 105);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(69, 28);
