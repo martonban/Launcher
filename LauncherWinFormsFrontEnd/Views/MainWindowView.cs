@@ -1,7 +1,7 @@
 ﻿using LauncherBackend.Controller;
+using LauncherBackend.Exceptions;
 using LauncherWinFormsFrontEnd.BackendConnector;
 using LauncherWinFormsFrontEnd.Models;
-using LauncherWinFormsFrontEnd.ModelViews;
 using LauncherWinFormsFrontEnd.Views.MainWindowViews;
 using System;
 using System.Collections.Generic;
@@ -12,12 +12,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace LauncherWinFormsFrontEnd.Views {
     public partial class MainWindowView : Form {
 
         public static Backend backend = new Backend();
-
+        
         public ShopUserControlView shopUserControl;
         public LibaryUserControlView libaryUserControl;
         public AppsUserControlView appsUserControl;
@@ -35,12 +36,10 @@ namespace LauncherWinFormsFrontEnd.Views {
             projectUserControl = new ProjectUserControlView();
         }
 
-
-
-        public static void UserControlContextSwich(UserControl userControl) {
+        public void UserControlContextSwich(UserControl userControl) {
             userControl.Dock = DockStyle.Right;
             userControl.Show();
-            control.Add(userControl);
+            this.Controls.Add(userControl);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {

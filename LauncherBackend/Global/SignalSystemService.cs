@@ -19,8 +19,6 @@ namespace LauncherBackend.Global {
 
     public static class SignalSystem {
 
-        public static event EventHandler ErrorThrowned;
-
         private static Exception currentError = null;
         private static ErrorTypes type;
 

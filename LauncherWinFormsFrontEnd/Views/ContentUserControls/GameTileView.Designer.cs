@@ -1,4 +1,5 @@
-﻿namespace LauncherWinFormsFrontEnd.Views.ContentUserControls {
+﻿
+namespace LauncherWinFormsFrontEnd.Views.ContentUserControls {
     partial class GameTileView {
         /// <summary> 
         /// Required designer variable.
@@ -69,12 +70,12 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Rubik", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 238);
             linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(862, 142);
+            linkLabel1.Location = new Point(847, 142);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(100, 20);
+            linkLabel1.Size = new Size(118, 20);
             linkLabel1.TabIndex = 3;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Check out...";
+            linkLabel1.Text = "Get this game";
             linkLabel1.VisitedLinkColor = Color.White;
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 

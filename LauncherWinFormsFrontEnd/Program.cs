@@ -1,4 +1,3 @@
-using LauncherWinFormsFrontEnd.ModelViews;
 using LauncherWinFormsFrontEnd.TestViews;
 using LauncherWinFormsFrontEnd.Views;
 
@@ -13,7 +12,6 @@ namespace LauncherWinFormsFrontEnd {
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainWindowView());
-
         }
     }
 }
